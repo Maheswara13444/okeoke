@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beli Produk - Foodways</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+    }
+
+    window.onload = () => {
+      const produk = getQueryParam("produk") || "Produk";
+      const harga = getQueryParam("harga") || "0";
+
+      document.getElementById("namaProduk").innerText = produk;
+      document.getElementById("hargaProduk").innerText = "Rp " + harga;
+
+      // link WA langsung
+      const msg = `Halo, saya ingin membeli ${produk} dengan harga Rp ${harga}`;
+      const waLink = `https://wa.me/qr/C7XHIPTLUB4JO1?text=${encodeURIComponent(msg)}`;
+      document.getElementById("btnWA").setAttribute("href", waLink);
+    };
+  </script>
+</head>
+<body class="bg-[#0f172a] text-white flex items-center justify-center min-h-screen">
+  <div class="bg-[#1e293b] p-8 rounded-xl shadow-lg text-center max-w-md w-full">
+    <h2 class="text-2xl font-bold mb-4">Pembelian Produk</h2>
+    <p class="text-lg">Produk: <span id="namaProduk" class="font-semibold"></span></p>
+    <p class="text-lg mb-6">Harga: <span id="hargaProduk" class="text-green-400 font-bold"></span></p>
+    <a id="btnWA" target="_blank" 
+       class="bg-green-600 px-4 py-2 rounded-lg text-white font-semibold hover:bg-green-700 transition">
+      Lanjutkan ke WhatsApp
+    </a>
+  </div>
+</body>
+</html>
