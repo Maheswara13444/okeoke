@@ -9,95 +9,91 @@
 <body class="bg-[#0f172a] text-white">
   <!-- navbar -->
   <nav class="flex justify-between items-center p-4 bg-[#1e293b] shadow-md">
-    <!-- Logo + Teks Wastara -->
     <a href="index.html" class="flex items-center space-x-3">
-      <img src="images/produk.png" alt="Wastara" class="h-12 w-auto">
-      <span class="text-2xl font-bold text-white">Wastara</span>
+      <img src="images/produk.png" alt="Wastara" class="h-10 w-auto">
+      <span class="text-xl font-bold">Wastara</span>
     </a>
-
-    <!-- tombol menu mobile -->
-    <button id="menuBtn" class="md:hidden text-gray-300 focus:outline-none">☰</button>
-
-    <!-- menu -->
-    <div id="menu" class="hidden md:flex space-x-6 flex-col md:flex-row absolute md:static top-14 left-0 w-full md:w-auto bg-[#1e293b] md:bg-transparent p-4 md:p-0">
-      <a href="index.html" class="hover:text-green-400 py-1">Beranda</a>
-      <a href="produk.html" class="hover:text-green-400 py-1">Produk</a>
-      <a href="tentang.html" class="hover:text-green-400 py-1">Tentang</a>
+    <div class="space-x-6">
+      <a href="index.html" class="hover:text-green-400">Beranda</a>
+      <a href="produk.html" class="hover:text-green-400">Produk</a>
+      <a href="tentang.html" class="hover:text-green-400">Tentang</a>
     </div>
   </nav>
 
   <!-- daftar produk -->
-  <section class="p-6">
-    <h1 class="text-2xl font-bold mb-6 text-center">Produk Tersedia</h1>
-    <div class="grid gap-6 sm:grid-cols-2 md:grid-cols-3">
-      
-      <!-- produk 1 -->
-      <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1608198093002-ad4e00548402?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-             alt="Roti Coklat" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h2 class="text-lg font-bold">Roti Coklat</h2>
-          <p class="text-gray-300 text-sm mb-1">Masih segar, sisa hari ini.</p>
-          <p class="text-red-400 text-sm mb-2">Kadaluarsa: 30 Sep 2025</p>
-          <span class="text-green-400 font-semibold block mb-3">Rp 5.000</span>
-          <a href="beli.html?produk=Roti%20Coklat&harga=5000" 
-             class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-            Beli Sekarang
-          </a>
-        </div>
+  <section class="grid md:grid-cols-3 gap-6 p-6">
+    <!-- produk 1 -->
+    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1604908177225-df93df83dfb1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Donat Manis" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Donat Isi</h2>
+        <p class="text-gray-300 text-sm mb-1">Donat sisa produksi.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 02 Okt 2025</p>
+        <span class="text-green-400 font-semibold block mb-3">Rp 5.000</span>
+        <a href="beli.html?produk=Donat%20Isi&harga=5000" 
+           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
+          Beli Sekarang
+        </a>
       </div>
-
-      <!-- produk 2 -->
-      <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-             alt="Kue Tart Mini" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h2 class="text-lg font-bold">Kue Tart Mini</h2>
-          <p class="text-gray-300 text-sm mb-1">Sisa pesta, layak konsumsi.</p>
-          <p class="text-red-400 text-sm mb-2">Kadaluarsa: 01 Okt 2025</p>
-          <span class="text-green-400 font-semibold block mb-3">Rp 15.000</span>
-          <a href="beli.html?produk=Kue%20Tart%20Mini&harga=15000" 
-             class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-            Beli Sekarang
-          </a>
-        </div>
-      </div>
-
-      <!-- produk 3 -->
-      <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1617196037984-df54da6f2a91?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-             alt="Donat Manis" class="w-full h-40 object-cover">
-        <div class="p-4">
-          <h2 class="text-lg font-bold">Donat Manis</h2>
-          <p class="text-gray-300 text-sm mb-1">Paket 3 pcs donat.</p>
-          <p class="text-red-400 text-sm mb-2">Kadaluarsa: 02 Okt 2025</p>
-          <span class="text-green-400 font-semibold block mb-3">Rp 10.000</span>
-          <a href="beli.html?produk=Donat%20Manis&harga=10000" 
-             class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-            Beli Sekarang
-          </a>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Tombol Unggah Produk via WhatsApp -->
-    <div class="text-center mt-8">
-      <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara,%0ASaya%20ingin%20mengunggah%20produk%20baru.%0A%0ANama%20Produk:%0AHarga:%0ADeskripsi:%0ATanggal%20Kadaluarsa:%0AURL%20Foto:%0A" 
-         target="_blank" 
-         class="inline-block bg-blue-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-blue-600">
-        📤 Unggah Produk via WhatsApp
-      </a>
+    <!-- produk 2 -->
+    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1627308595186-9f73c55a3d49?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Nasi Box" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Nasi Box A</h2>
+        <p class="text-gray-300 text-sm mb-1">Nasi sayur & ayam suwir.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 27 Sep 2025</p>
+        <span class="text-green-400 font-semibold block mb-3">Rp 15.000</span>
+        <a href="beli.html?produk=Nasi%20Box%20A&harga=15000" 
+           class="block bg-yellow-500 text-center text-white px-4 py-2 rounded-lg hover:bg-yellow-600">
+          Beli Sekarang
+        </a>
+      </div>
+    </div>
+
+    <!-- produk 3 -->
+    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1608198093002-ad4e005484c5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Roti Cokelat" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Roti Cokelat</h2>
+        <p class="text-gray-300 text-sm mb-1">Roti produksi pagi ini.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 29 Sep 2025</p>
+        <span class="text-green-400 font-semibold block mb-3">Rp 8.000</span>
+        <a href="beli.html?produk=Roti%20Cokelat&harga=8000" 
+           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
+          Beli Sekarang
+        </a>
+      </div>
+    </div>
+
+    <!-- produk 4 (apel baru) -->
+    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+           alt="Apel Segar" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Apel</h2>
+        <p class="text-gray-300 text-sm mb-1">Segar dan siap dikonsumsi.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 31 Des 2025</p>
+        <span class="text-green-400 font-semibold block mb-3">Rp 23.000</span>
+        <a href="beli.html?produk=Apel&harga=23000" 
+           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
+          Beli Sekarang
+        </a>
+      </div>
     </div>
   </section>
 
-  <script>
-    // toggle menu mobile
-    const menuBtn = document.getElementById("menuBtn");
-    const menu = document.getElementById("menu");
-    menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-  </script>
+  <!-- tombol unggah via WhatsApp -->
+  <div class="text-center pb-10">
+    <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara%2C%0ASaya%20ingin%20mengunggah%20produk%20baru."
+       target="_blank"
+       class="bg-blue-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-blue-600">
+      Unggah Produk via WhatsApp
+    </a>
+  </div>
 </body>
 </html>
