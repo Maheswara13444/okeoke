@@ -3,118 +3,77 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wastara - Produk</title>
+  <title>Wastara - Upload Produk</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0f172a] text-white min-h-screen flex flex-col">
+<body class="bg-[#0f172a] text-white min-h-screen flex items-center justify-center">
 
-  <!-- navbar -->
-  <nav class="flex justify-between items-center p-4 bg-[#1e293b] shadow-md sticky top-0 z-10">
-    <a href="index.html" class="flex items-center space-x-3">
-      <img src="images/produk.png" alt="Wastara" class="h-10 w-auto">
-      <span class="text-xl font-bold text-white">Wastara</span>
-    </a>
-    <div class="space-x-6 hidden md:flex">
-      <a href="index.html" class="hover:text-green-400">Beranda</a>
-      <a href="produk.html" class="hover:text-green-400">Produk</a>
-      <a href="tentang.html" class="hover:text-green-400">Tentang</a>
-    </div>
-    <button id="menuBtn" class="md:hidden text-gray-300 focus:outline-none">☰</button>
-  </nav>
-
-  <!-- menu mobile -->
-  <div id="menu" class="hidden flex-col bg-[#1e293b] md:hidden">
-    <a href="index.html" class="p-2 border-b border-gray-700 hover:text-green-400">Beranda</a>
-    <a href="produk.html" class="p-2 border-b border-gray-700 hover:text-green-400">Produk</a>
-    <a href="tentang.html" class="p-2 hover:text-green-400">Tentang</a>
+  <!-- FORM LOGIN -->
+  <div id="loginBox" class="bg-[#1e293b] p-6 rounded-xl shadow-lg w-80">
+    <h2 class="text-xl font-bold mb-4">Login Admin</h2>
+    <input type="password" id="password" placeholder="Masukkan password"
+      class="w-full p-2 mb-3 rounded bg-[#0f172a] text-white" />
+    <button onclick="login()" 
+      class="w-full bg-green-600 py-2 rounded-lg hover:bg-green-700 transition">
+      Login
+    </button>
+    <p id="loginError" class="text-red-400 text-sm mt-2 hidden">Password salah!</p>
   </div>
 
-  <!-- konten utama -->
-  <main class="flex-1">
-    <!-- daftar produk -->
-    <section class="p-4 md:p-6">
-      <h1 class="text-xl md:text-2xl font-bold mb-4">Daftar Produk</h1>
-      <div id="produkList" class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-        <!-- produk hasil unggahan akan masuk sini -->
-      </div>
-    </section>
-
-    <!-- unggah produk -->
-    <section id="unggah" class="p-4 md:p-6 bg-[#1e293b]">
-      <h2 class="text-lg md:text-xl font-bold mb-4">Unggah Produk (Mitra)</h2>
-      <form id="unggahForm" class="space-y-3">
-        <input type="text" id="namaProduk" placeholder="Nama Produk" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-        <input type="number" id="hargaProduk" placeholder="Harga (Rp)" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-        <input type="text" id="deskripsiProduk" placeholder="Deskripsi singkat" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-        <input type="date" id="expiredProduk" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-        <input type="url" id="gambarProduk" placeholder="URL Gambar (opsional)" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" />
-        <div class="flex flex-col sm:flex-row gap-2">
-          <button type="submit" class="flex-1 bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600">Unggah</button>
-          <button type="reset" class="flex-1 bg-gray-700 px-4 py-2 rounded-lg hover:bg-gray-600">Bersihkan</button>
-        </div>
-      </form>
-    </section>
-  </main>
+  <!-- FORM UPLOAD PRODUK -->
+  <div id="uploadBox" class="hidden bg-[#1e293b] p-6 rounded-xl shadow-lg w-96">
+    <h2 class="text-xl font-bold mb-4">Unggah Produk</h2>
+    <input type="text" id="nama" placeholder="Nama Produk" 
+      class="w-full p-2 mb-3 rounded bg-[#0f172a] text-white" />
+    <input type="number" id="harga" placeholder="Harga Produk" 
+      class="w-full p-2 mb-3 rounded bg-[#0f172a] text-white" />
+    <input type="date" id="kedaluwarsa" 
+      class="w-full p-2 mb-3 rounded bg-[#0f172a] text-white" />
+    <textarea id="deskripsi" placeholder="Deskripsi Produk"
+      class="w-full p-2 mb-3 rounded bg-[#0f172a] text-white"></textarea>
+    <input type="file" id="gambar" accept="image/*" 
+      class="w-full p-2 mb-3 text-white" />
+    
+    <button onclick="unggahProduk()" 
+      class="w-full bg-blue-600 py-2 rounded-lg hover:bg-blue-700 transition">
+      Simpan Produk
+    </button>
+  </div>
 
   <script>
-    const unggahForm = document.getElementById("unggahForm");
-    const produkList = document.getElementById("produkList");
+    const ADMIN_PASSWORD = "wastara123"; // ganti dengan password kamu
 
-    // Ambil produk dari localStorage
-    let produkData = JSON.parse(localStorage.getItem("produkWastara")) || [];
-
-    // Render produk ke halaman
-    function renderProduk() {
-      produkList.innerHTML = "";
-      produkData.forEach((item, index) => {
-        const card = document.createElement("div");
-        card.className = "bg-[#1e293b] rounded-lg p-4 shadow-md flex flex-col";
-
-        card.innerHTML = `
-          <img src="${item.gambar}" alt="${item.nama}" class="w-full h-40 object-cover rounded mb-3">
-          <h3 class="text-lg font-bold">${item.nama}</h3>
-          <p class="text-gray-300 text-sm">Rp ${item.harga}</p>
-          <p class="text-gray-400 text-xs mt-1">${item.deskripsi}</p>
-          <p class="text-red-400 text-xs mt-1">Kedaluwarsa: ${item.expired}</p>
-          <button onclick="hapusProduk(${index})" class="mt-3 bg-red-500 hover:bg-red-600 text-sm px-3 py-1 rounded">Hapus</button>
-        `;
-        produkList.appendChild(card);
-      });
+    function login() {
+      const pass = document.getElementById("password").value;
+      if (pass === ADMIN_PASSWORD) {
+        localStorage.setItem("isAdmin", "true"); // simpan status login
+        document.getElementById("loginBox").classList.add("hidden");
+        document.getElementById("uploadBox").classList.remove("hidden");
+      } else {
+        document.getElementById("loginError").classList.remove("hidden");
+      }
     }
 
-    // Simpan produk ke localStorage
-    unggahForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-
-      const nama = document.getElementById("namaProduk").value;
-      const harga = document.getElementById("hargaProduk").value;
-      const deskripsi = document.getElementById("deskripsiProduk").value;
-      const expired = document.getElementById("expiredProduk").value;
-      const gambar = document.getElementById("gambarProduk").value || "images/produk.png";
-
-      produkData.push({ nama, harga, deskripsi, expired, gambar });
-      localStorage.setItem("produkWastara", JSON.stringify(produkData));
-
-      renderProduk();
-      unggahForm.reset();
-    });
-
-    // Hapus produk
-    function hapusProduk(index) {
-      produkData.splice(index, 1);
-      localStorage.setItem("produkWastara", JSON.stringify(produkData));
-      renderProduk();
+    function checkLogin() {
+      if (localStorage.getItem("isAdmin") === "true") {
+        document.getElementById("loginBox").classList.add("hidden");
+        document.getElementById("uploadBox").classList.remove("hidden");
+      }
     }
 
-    // Render awal
-    renderProduk();
+    function unggahProduk() {
+      const produk = {
+        nama: document.getElementById("nama").value,
+        harga: document.getElementById("harga").value,
+        kedaluwarsa: document.getElementById("kedaluwarsa").value,
+        deskripsi: document.getElementById("deskripsi").value,
+      };
+      alert("Produk berhasil diunggah:\n" + JSON.stringify(produk, null, 2));
+      // nanti bisa diarahkan ke API untuk simpan ke database
+    }
 
-    // Toggle menu mobile
-    const menuBtn = document.getElementById("menuBtn");
-    const menu = document.getElementById("menu");
-    menuBtn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
+    // cek login saat halaman dibuka
+    checkLogin();
   </script>
 </body>
 </html>
