@@ -6,76 +6,114 @@
   <title>Wastara - Produk</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-[#0f172a] text-white min-h-screen">
+<body class="bg-[#0f172a] text-white min-h-screen flex flex-col">
 
   <!-- navbar -->
-  <nav class="flex justify-between items-center p-4 bg-[#1e293b] shadow-md">
+  <nav class="flex justify-between items-center p-4 bg-[#1e293b] shadow-md sticky top-0 z-10">
     <a href="index.html" class="flex items-center space-x-3">
       <img src="images/produk.png" alt="Wastara" class="h-10 w-auto">
       <span class="text-xl font-bold text-white">Wastara</span>
     </a>
-    <div class="space-x-6">
+    <div class="space-x-6 hidden md:flex">
       <a href="index.html" class="hover:text-green-400">Beranda</a>
       <a href="produk.html" class="hover:text-green-400">Produk</a>
       <a href="tentang.html" class="hover:text-green-400">Tentang</a>
     </div>
+    <button id="menuBtn" class="md:hidden text-gray-300 focus:outline-none">☰</button>
   </nav>
 
-  <!-- daftar produk -->
-  <section class="p-6">
-    <h1 class="text-2xl font-bold mb-4">Daftar Produk</h1>
-    <div id="produkList" class="grid md:grid-cols-3 gap-6">
-      <!-- produk hasil unggahan akan masuk sini -->
-    </div>
-  </section>
+  <!-- menu mobile -->
+  <div id="menu" class="hidden flex-col bg-[#1e293b] md:hidden">
+    <a href="index.html" class="p-2 border-b border-gray-700 hover:text-green-400">Beranda</a>
+    <a href="produk.html" class="p-2 border-b border-gray-700 hover:text-green-400">Produk</a>
+    <a href="tentang.html" class="p-2 hover:text-green-400">Tentang</a>
+  </div>
 
-  <!-- unggah produk -->
-  <section id="unggah" class="p-6 bg-[#1e293b]">
-    <h2 class="text-xl font-bold mb-4">Unggah Produk (Mitra)</h2>
-    <form id="unggahForm" class="space-y-3">
-      <input type="text" id="namaProduk" placeholder="Nama Produk" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-      <input type="number" id="hargaProduk" placeholder="Harga (Rp)" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-      <input type="text" id="deskripsiProduk" placeholder="Deskripsi singkat" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-      <input type="date" id="expiredProduk" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
-      <input type="url" id="gambarProduk" placeholder="URL Gambar (opsional)" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" />
-      <div class="flex space-x-3">
-        <button type="submit" class="bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600">Unggah</button>
-        <button type="reset" class="bg-gray-700 px-4 py-2 rounded-lg hover:bg-gray-600">Bersihkan</button>
+  <!-- konten utama -->
+  <main class="flex-1">
+    <!-- daftar produk -->
+    <section class="p-4 md:p-6">
+      <h1 class="text-xl md:text-2xl font-bold mb-4">Daftar Produk</h1>
+      <div id="produkList" class="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
+        <!-- produk hasil unggahan akan masuk sini -->
       </div>
-    </form>
-  </section>
+    </section>
+
+    <!-- unggah produk -->
+    <section id="unggah" class="p-4 md:p-6 bg-[#1e293b]">
+      <h2 class="text-lg md:text-xl font-bold mb-4">Unggah Produk (Mitra)</h2>
+      <form id="unggahForm" class="space-y-3">
+        <input type="text" id="namaProduk" placeholder="Nama Produk" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
+        <input type="number" id="hargaProduk" placeholder="Harga (Rp)" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
+        <input type="text" id="deskripsiProduk" placeholder="Deskripsi singkat" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
+        <input type="date" id="expiredProduk" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" required />
+        <input type="url" id="gambarProduk" placeholder="URL Gambar (opsional)" class="w-full p-2 rounded bg-[#0f172a] border border-gray-600 text-sm" />
+        <div class="flex flex-col sm:flex-row gap-2">
+          <button type="submit" class="flex-1 bg-green-500 px-4 py-2 rounded-lg hover:bg-green-600">Unggah</button>
+          <button type="reset" class="flex-1 bg-gray-700 px-4 py-2 rounded-lg hover:bg-gray-600">Bersihkan</button>
+        </div>
+      </form>
+    </section>
+  </main>
 
   <script>
     const unggahForm = document.getElementById("unggahForm");
     const produkList = document.getElementById("produkList");
 
+    // Ambil produk dari localStorage
+    let produkData = JSON.parse(localStorage.getItem("produkWastara")) || [];
+
+    // Render produk ke halaman
+    function renderProduk() {
+      produkList.innerHTML = "";
+      produkData.forEach((item, index) => {
+        const card = document.createElement("div");
+        card.className = "bg-[#1e293b] rounded-lg p-4 shadow-md flex flex-col";
+
+        card.innerHTML = `
+          <img src="${item.gambar}" alt="${item.nama}" class="w-full h-40 object-cover rounded mb-3">
+          <h3 class="text-lg font-bold">${item.nama}</h3>
+          <p class="text-gray-300 text-sm">Rp ${item.harga}</p>
+          <p class="text-gray-400 text-xs mt-1">${item.deskripsi}</p>
+          <p class="text-red-400 text-xs mt-1">Kedaluwarsa: ${item.expired}</p>
+          <button onclick="hapusProduk(${index})" class="mt-3 bg-red-500 hover:bg-red-600 text-sm px-3 py-1 rounded">Hapus</button>
+        `;
+        produkList.appendChild(card);
+      });
+    }
+
+    // Simpan produk ke localStorage
     unggahForm.addEventListener("submit", (e) => {
       e.preventDefault();
 
-      // ambil data input
       const nama = document.getElementById("namaProduk").value;
       const harga = document.getElementById("hargaProduk").value;
       const deskripsi = document.getElementById("deskripsiProduk").value;
       const expired = document.getElementById("expiredProduk").value;
       const gambar = document.getElementById("gambarProduk").value || "images/produk.png";
 
-      // buat elemen card produk
-      const card = document.createElement("div");
-      card.className = "bg-[#1e293b] rounded-lg p-4 shadow-md";
+      produkData.push({ nama, harga, deskripsi, expired, gambar });
+      localStorage.setItem("produkWastara", JSON.stringify(produkData));
 
-      card.innerHTML = `
-        <img src="${gambar}" alt="${nama}" class="w-full h-40 object-cover rounded mb-3">
-        <h3 class="text-lg font-bold">${nama}</h3>
-        <p class="text-gray-300 text-sm">Rp ${harga}</p>
-        <p class="text-gray-400 text-xs mt-1">${deskripsi}</p>
-        <p class="text-red-400 text-xs mt-1">Kedaluwarsa: ${expired}</p>
-      `;
-
-      // tambahkan ke daftar produk
-      produkList.appendChild(card);
-
-      // reset form
+      renderProduk();
       unggahForm.reset();
+    });
+
+    // Hapus produk
+    function hapusProduk(index) {
+      produkData.splice(index, 1);
+      localStorage.setItem("produkWastara", JSON.stringify(produkData));
+      renderProduk();
+    }
+
+    // Render awal
+    renderProduk();
+
+    // Toggle menu mobile
+    const menuBtn = document.getElementById("menuBtn");
+    const menu = document.getElementById("menu");
+    menuBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
     });
   </script>
 </body>
