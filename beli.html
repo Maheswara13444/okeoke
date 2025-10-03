@@ -12,15 +12,17 @@
     }
 
     window.onload = () => {
-      const produk = getQueryParam("produk") || "Produk";
+      // ambil produk & harga dari query string
+      const produk = getQueryParam("produk") || "Produk Contoh";
       const harga = getQueryParam("harga") || "0";
 
+      // tampilkan di halaman
       document.getElementById("namaProduk").innerText = produk;
       document.getElementById("hargaProduk").innerText = "Rp " + harga;
 
-      // link WA langsung ke nomor 082132087833
+      // nomor WA pakai format internasional: 628...
       const msg = `Halo, saya ingin membeli ${produk} dengan harga Rp ${harga}`;
-      const waLink = 'https://wa.me/6282132087833?text=Halo%20saya%20ingin%20membeli%20produk`;
+      const waLink = `https://wa.me/6282132087833?text=${encodeURIComponent(msg)}`;
       document.getElementById("btnWA").setAttribute("href", waLink);
     };
   </script>
@@ -28,12 +30,14 @@
 <body class="bg-[#0f172a] text-white flex items-center justify-center min-h-screen p-4">
   <div class="bg-[#1e293b] p-6 md:p-8 rounded-xl shadow-lg text-center w-full max-w-sm sm:max-w-md">
     <h2 class="text-xl sm:text-2xl font-bold mb-4">Pembelian Produk</h2>
+    
     <p class="text-base sm:text-lg">Produk: 
       <span id="namaProduk" class="font-semibold"></span>
     </p>
     <p class="text-base sm:text-lg mb-6">Harga: 
       <span id="hargaProduk" class="text-green-400 font-bold"></span>
     </p>
+    
     <a id="btnWA" target="_blank" 
        class="block bg-green-600 px-4 py-3 rounded-lg text-white font-semibold hover:bg-green-700 transition w-full text-center">
       Lanjutkan ke WhatsApp
@@ -41,4 +45,3 @@
   </div>
 </body>
 </html>
-
