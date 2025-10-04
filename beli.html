@@ -19,13 +19,10 @@
       document.getElementById("hargaProduk").innerText = "Rp " + harga;
     };
 
-    function pilihPembayaran(metode) {
-      const produk = document.getElementById("namaProduk").innerText;
-      const harga = document.getElementById("hargaProduk").innerText;
-
-      // 👉 di tahap nyata ini diarahkan ke API payment gateway (Midtrans/Xendit)
-      alert(`Anda memilih ${metode} untuk membayar ${produk} seharga ${harga}. 
-(Integrasikan dengan API ${metode})`);
+    function salinNomor() {
+      const nomor = "082132087833";
+      navigator.clipboard.writeText(nomor);
+      alert("Nomor " + nomor + " berhasil disalin. Silakan tempel di aplikasi e-wallet Anda.");
     }
   </script>
 </head>
@@ -39,29 +36,17 @@
       <span id="hargaProduk" class="text-green-400 font-bold"></span>
     </p>
 
-    <h3 class="text-lg font-semibold mb-3">Pilih Metode Pembayaran:</h3>
-    <div class="grid gap-3">
-      <button onclick="pilihPembayaran('GoPay')" 
-              class="bg-blue-500 px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
-        Bayar dengan GoPay
-      </button>
-      <button onclick="pilihPembayaran('OVO')" 
-              class="bg-purple-600 px-4 py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
-        Bayar dengan OVO
-      </button>
-      <button onclick="pilihPembayaran('DANA')" 
-              class="bg-blue-400 px-4 py-3 rounded-lg font-semibold hover:bg-blue-500 transition">
-        Bayar dengan DANA
-      </button>
-      <button onclick="pilihPembayaran('ShopeePay')" 
-              class="bg-orange-500 px-4 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-        Bayar dengan ShopeePay
-      </button>
-      <button onclick="pilihPembayaran('Transfer Bank')" 
-              class="bg-gray-600 px-4 py-3 rounded-lg font-semibold hover:bg-gray-700 transition">
-        Transfer Bank
+    <h3 class="text-lg font-semibold mb-3">Silakan Transfer ke:</h3>
+    <div class="bg-gray-800 p-4 rounded-lg text-left mb-4">
+      <p><strong>GoPay / OVO / DANA / ShopeePay:</strong></p>
+      <p class="text-green-400 font-bold text-lg">082132087833</p>
+      <button onclick="salinNomor()" 
+              class="mt-3 bg-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+        Salin Nomor
       </button>
     </div>
+
+    <p class="text-sm text-gray-400">Setelah transfer, kirim bukti pembayaran ke WhatsApp admin.</p>
   </div>
 </body>
 </html>
