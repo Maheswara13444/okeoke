@@ -33,4 +33,49 @@
     <h2 class="text-2xl font-bold text-center mb-6">Pembayaran</h2>
 
     <!-- Produk & Harga -->
-    <div class
+    <div class="mb-6 text-center">
+      <p class="text-base">Produk:</p>
+      <p id="namaProduk" class="text-lg font-semibold"></p>
+      <p class="mt-3 text-base">Harga:</p>
+      <p id="hargaProduk" class="text-xl text-green-400 font-bold"></p>
+    </div>
+
+    <!-- Pilihan Metode -->
+    <h3 class="text-lg font-semibold mb-4">Pilih Metode Pembayaran:</h3>
+    <div class="space-y-3">
+      <button onclick="pilihPembayaran('GoPay')" class="w-full flex items-center justify-start gap-3 bg-blue-500 px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+        <img src="https://seeklogo.com/images/G/gopay-logo-5A100995E0-seeklogo.com.png" alt="GoPay" class="h-7 w-7 bg-white rounded-full p-1">
+        <span class="text-base">Bayar dengan GoPay</span>
+      </button>
+
+      <button onclick="pilihPembayaran('OVO')" class="w-full flex items-center justify-start gap-3 bg-purple-600 px-4 py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+        <img src="https://seeklogo.com/images/O/ovo-logo-6C3A91F5E3-seeklogo.com.png" alt="OVO" class="h-7 w-7">
+        <span class="text-base">Bayar dengan OVO</span>
+      </button>
+
+      <button onclick="pilihPembayaran('DANA')" class="w-full flex items-center justify-start gap-3 bg-blue-400 px-4 py-3 rounded-lg font-semibold hover:bg-blue-500 transition">
+        <img src="https://seeklogo.com/images/D/dana-indonesia-logo-77CCDC2240-seeklogo.com.png" alt="DANA" class="h-7 w-7">
+        <span class="text-base">Bayar dengan DANA</span>
+      </button>
+
+      <button onclick="pilihPembayaran('ShopeePay')" class="w-full flex items-center justify-start gap-3 bg-orange-500 px-4 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+        <img src="https://seeklogo.com/images/S/shopee-logo-7F96D6D611-seeklogo.com.png" alt="ShopeePay" class="h-7 w-7 bg-white rounded p-1">
+        <span class="text-base">Bayar dengan ShopeePay</span>
+      </button>
+
+      <button onclick="pilihPembayaran('Transfer Bank')" class="w-full flex items-center justify-start gap-3 bg-gray-600 px-4 py-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" alt="Bank" class="h-7 w-7">
+        <span class="text-base">Transfer Bank</span>
+      </button>
+    </div>
+
+    <!-- QR Section -->
+    <div id="sectionQR" class="hidden mt-8 text-center">
+      <h3 class="text-lg font-semibold">Scan untuk membayar dengan <span id="metodeDipilih"></span></h3>
+      <p class="text-sm text-gray-400 mb-3">Nomor tujuan: <span class="font-bold">082132087833</span></p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=082132087833" alt="QR Pembayaran" class="mx-auto rounded-lg shadow-md w-48 h-48">
+      <p class="mt-3 text-xs text-gray-400">Gunakan aplikasi e-wallet untuk scan QR ini.</p>
+    </div>
+  </div>
+</body>
+</html>
