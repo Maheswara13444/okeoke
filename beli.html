@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beli Produk - Foodways</title>
+  <title>Pembayaran - Wastara</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     function getQueryParam(param) {
@@ -17,29 +17,51 @@
 
       document.getElementById("namaProduk").innerText = produk;
       document.getElementById("hargaProduk").innerText = "Rp " + harga;
-
-      // link WA langsung
-      const msg = `Halo, saya ingin membeli ${produk} dengan harga Rp ${harga}`;
-      const waLink = `https://wa.me/6282132087833?text=${encodeURIComponent(msg)}`;
-      document.getElementById("btnWA").setAttribute("href", waLink);
     };
+
+    function pilihPembayaran(metode) {
+      const produk = document.getElementById("namaProduk").innerText;
+      const harga = document.getElementById("hargaProduk").innerText;
+
+      // 👉 di tahap nyata ini diarahkan ke API payment gateway (Midtrans/Xendit)
+      alert(`Anda memilih ${metode} untuk membayar ${produk} seharga ${harga}. 
+(Integrasikan dengan API ${metode})`);
+    }
   </script>
 </head>
 <body class="bg-[#0f172a] text-white flex items-center justify-center min-h-screen p-4">
   <div class="bg-[#1e293b] p-6 md:p-8 rounded-xl shadow-lg text-center w-full max-w-sm sm:max-w-md">
-    <h2 class="text-xl sm:text-2xl font-bold mb-4">Pembelian Produk</h2>
+    <h2 class="text-xl sm:text-2xl font-bold mb-4">Halaman Pembayaran</h2>
     <p class="text-base sm:text-lg">Produk: 
       <span id="namaProduk" class="font-semibold"></span>
     </p>
     <p class="text-base sm:text-lg mb-6">Harga: 
       <span id="hargaProduk" class="text-green-400 font-bold"></span>
     </p>
-    <a id="btnWA" target="_blank" 
-       class="block bg-green-600 px-4 py-3 rounded-lg text-white font-semibold hover:bg-green-700 transition w-full text-center">
-      Lanjutkan ke WhatsApp
-    </a>
+
+    <h3 class="text-lg font-semibold mb-3">Pilih Metode Pembayaran:</h3>
+    <div class="grid gap-3">
+      <button onclick="pilihPembayaran('GoPay')" 
+              class="bg-blue-500 px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
+        Bayar dengan GoPay
+      </button>
+      <button onclick="pilihPembayaran('OVO')" 
+              class="bg-purple-600 px-4 py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
+        Bayar dengan OVO
+      </button>
+      <button onclick="pilihPembayaran('DANA')" 
+              class="bg-blue-400 px-4 py-3 rounded-lg font-semibold hover:bg-blue-500 transition">
+        Bayar dengan DANA
+      </button>
+      <button onclick="pilihPembayaran('ShopeePay')" 
+              class="bg-orange-500 px-4 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
+        Bayar dengan ShopeePay
+      </button>
+      <button onclick="pilihPembayaran('Transfer Bank')" 
+              class="bg-gray-600 px-4 py-3 rounded-lg font-semibold hover:bg-gray-700 transition">
+        Transfer Bank
+      </button>
+    </div>
   </div>
 </body>
-</html> 
-
-
+</html>
