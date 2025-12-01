@@ -3,166 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wastara - Produk</title>
-
-  <!-- Tailwind -->
+  <title>Wastara - Jual & Beli Makanan Sisa</title>
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      opacity: 0;
+      transition: opacity 0.6s ease;
     }
-
-    /* Light Mode */
-    .light {
-      background: linear-gradient(135deg, #f5e8d3, #e8d5b5);
-      color: #1a1a1a;
-    }
-
-    .light .navbar,
-    .light .card {
-      background: #ffffff;
-      color: #1a1a1a;
-    }
-
-    /* Dark Mode */
-    .dark {
-      background: #0f172a;
-      color: white;
-    }
-
-    .dark .navbar,
-    .dark .card {
-      background: #1e293b;
-      color: #ffffff;
+    body.loaded {
+      opacity: 1;
     }
   </style>
-</head>
 
-<body class="dark">
-
-  <!-- NAVBAR -->
-  <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      <a href="index.html" class="flex items-center space-x-3">
-        <img src="images/produk.png" alt="Wastara" class="h-10 w-auto">
-        <span class="text-xl font-bold">Wastara</span>
-      </a>
-
-      <!-- TOGGLE MODE -->
-      <button id="toggle-mode" class="px-4 py-2 bg-green-500 rounded-lg text-white hover:bg-green-600">
-        🌙 Night
-      </button>
-
-      <div class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-green-400">Beranda</a>
-        <a href="produk.html" class="hover:text-green-400">Produk</a>
-        <a href="tentang.html" class="hover:text-green-400">Tentang</a>
-      </div>
-  </nav>
-
-  <!-- GRID PRODUK -->
-  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-
-    <!-- PRODUK 1 -->
-    <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80"
-           class="w-full h-40 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold">Donat Isi</h2>
-        <p class="opacity-80 text-sm mb-1">Donat sisa produksi.</p>
-        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 02 Okt 2025</p>
-        <span class="text-green-500 font-semibold block mb-3">Rp 5.000</span>
-        <a href="beli.html?produk=Donat%20Isi&harga=5000"
-           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-          Beli Sekarang
-        </a>
-      </div>
-    </div>
-
-    <!-- PRODUK 2 -->
-    <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80"
-           class="w-full h-40 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold">Nasi Box A</h2>
-        <p class="opacity-80 text-sm mb-1">Nasi sayur & ayam suwir.</p>
-        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 27 Sep 2025</p>
-        <span class="text-green-500 font-semibold block mb-3">Rp 15.000</span>
-        <a href="beli.html?produk=Nasi%20Box%20A&harga=15000"
-           class="block bg-yellow-500 text-center text-white px-4 py-2 rounded-lg hover:bg-yellow-600">
-          Beli Sekarang
-        </a>
-      </div>
-    </div>
-
-    <!-- PRODUK 3 -->
-    <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="images/coklat.jpg" class="w-full h-40 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold">Roti Cokelat</h2>
-        <p class="opacity-80 text-sm mb-1">Roti produksi pagi ini.</p>
-        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 29 Sep 2025</p>
-        <span class="text-green-500 font-semibold block mb-3">Rp 8.000</span>
-        <a href="beli.html?produk=Roti%20Cokelat&harga=8000"
-           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-          Beli Sekarang
-        </a>
-      </div>
-    </div>
-
-    <!-- PRODUK 4 -->
-    <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=800&q=80"
-           class="w-full h-40 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold">Apel</h2>
-        <p class="opacity-80 text-sm mb-1">Segar dan siap dikonsumsi.</p>
-        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 31 Des 2025</p>
-        <span class="text-green-500 font-semibold block mb-3">Rp 23.000</span>
-        <a href="beli.html?produk=Apel&harga=23000"
-           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-          Beli Sekarang
-        </a>
-      </div>
-    </div>
-
-  </section>
-
-  <!-- UPLOAD VIA WA -->
-  <div class="text-center pb-10">
-    <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara%2C%0ASaya%20ingin%20mengunggah%20produk%20baru."
-       target="_blank"
-       class="bg-blue-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-blue-600">
-      Unggah Produk via WhatsApp
-    </a>
-  </div>
-
-  <!-- SCRIPT MODE -->
   <script>
-    const body = document.body;
-    const toggleBtn = document.getElementById("toggle-mode");
+    document.addEventListener("DOMContentLoaded", function () {
+      document.body.classList.add("loaded");
 
-    // Load mode dari localStorage
-    const savedMode = localStorage.getItem("mode") || "dark";
-    body.className = savedMode;
-    toggleBtn.textContent = savedMode === "dark" ? "🌙 Night" : "☀️ Light";
+      const themeToggle = document.getElementById("themeToggle");
+      const html = document.documentElement;
+      const savedTheme = localStorage.getItem("theme");
 
-    // Toggle mode
-    toggleBtn.addEventListener("click", () => {
-      if (body.classList.contains("dark")) {
-        body.classList.replace("dark", "light");
-        toggleBtn.textContent = "☀️ Light";
-        localStorage.setItem("mode", "light");
-      } else {
-        body.classList.replace("light", "dark");
-        toggleBtn.textContent = "🌙 Night";
-        localStorage.setItem("mode", "dark");
+      if (savedTheme) {
+        html.classList.toggle("dark", savedTheme === "dark");
       }
+
+      themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        const theme = html.classList.contains("dark") ? "dark" : "light";
+        localStorage.setItem("theme", theme);
+        themeToggle.innerText = theme === "dark" ? "☀️ Light Mode" : "🌙 Night Mode";
+      });
     });
   </script>
+</head>
+
+<body class="bg-amber-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-500">
+
+  <!-- NAVBAR -->
+  <nav class="flex items-center justify-between px-6 py-4 shadow bg-white dark:bg-gray-800">
+      <div class="flex items-center space-x-3">
+          <img src="https://i.ibb.co/4J6qpf2/Logo-roti.jpg" class="w-12 h-12 rounded-full shadow" />
+          <h1 class="text-2xl font-bold text-amber-800 dark:text-amber-300">Wastara</h1>
+      </div>
+
+      <button id="themeToggle" class="px-4 py-2 rounded-xl font-semibold shadow-md bg-amber-500 dark:bg-gray-700 text-white hover:bg-amber-600 dark:hover:bg-gray-600 transition">
+        🌙 Night Mode
+      </button>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="h-[80vh] flex flex-col justify-center items-center text-center px-6 bg-gradient-to-b from-amber-100 to-amber-200 dark:from-gray-800 dark:to-gray-700 transition-all duration-500">
+    <h2 class="text-4xl font-extrabold text-amber-900 dark:text-amber-300 drop-shadow-lg">Selamat Datang di Wastara</h2>
+    <p class="mt-4 text-lg max-w-2xl text-gray-700 dark:text-gray-200">
+      Platform jual beli makanan sisa berkualitas dengan harga murah. Selamatkan makanan, bantu sesama, dan dukung keberlanjutan!
+    </p>
+    <button class="mt-6 px-6 py-3 rounded-xl bg-amber-600 text-white font-semibold shadow hover:bg-amber-700 transition">Mulai Jelajahi</button>
+  </section>
 
 </body>
 </html>
