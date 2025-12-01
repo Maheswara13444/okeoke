@@ -10,15 +10,12 @@
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
-
-      /* === BACKGROUND BARU, CERAH === */
       background: linear-gradient(135deg, #dff7ff, #e8fff0);
       background-size: cover;
     }
 
     body.fade-in { opacity: 1; }
 
-    /* Overlay lebih cerah, bukan gelap */
     .overlay {
       background: rgba(255, 255, 255, 0.55);
       min-height: 100vh;
@@ -30,10 +27,9 @@
 <body class="text-slate-800">
   <div class="overlay">
 
-    <!-- navbar -->
+    <!-- navbar tanpa logo gambar -->
     <nav class="flex justify-between items-center p-4 bg-white/80 shadow-md backdrop-blur">
       <a href="index.html" class="flex items-center space-x-3 nav-link">
-        <img src="images/Logo_roti.jpeg" alt="Wastara" class="h-12 w-auto">
         <span class="text-2xl font-bold text-slate-900">Wastara</span>
       </a>
 
@@ -52,8 +48,8 @@
     <section class="flex flex-col items-center justify-center text-center p-6">
       <h2 class="text-3xl font-bold mb-4 text-slate-900">Jual & Beli Makanan Sisa — Aman dan Transparan</h2>
       <p class="text-slate-600 max-w-2xl mb-6">
-        Wastara memudahkan kafe, restoran, dan toko roti untuk menjual produk 
-        yang masih layak konsumsi dengan mencantumkan tanggal kedaluwarsa. 
+        Wastara memudahkan kafe, restoran, dan toko roti untuk menjual produk
+        yang masih layak konsumsi dengan mencantumkan tanggal kedaluwarsa.
         Pembeli mendapatkan makanan berkualitas dengan harga miring.
       </p>
 
@@ -93,4 +89,3 @@
   </script>
 </body>
 </html>
-
