@@ -4,132 +4,165 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wastara - Produk</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* Light Mode */
+    .light {
+      background: linear-gradient(135deg, #f5e8d3, #e8d5b5);
+      color: #1a1a1a;
+    }
+
+    .light .navbar,
+    .light .card {
+      background: #ffffff;
+      color: #1a1a1a;
+    }
+
+    /* Dark Mode */
+    .dark {
+      background: #0f172a;
+      color: white;
+    }
+
+    .dark .navbar,
+    .dark .card {
+      background: #1e293b;
+      color: #ffffff;
+    }
+  </style>
 </head>
-<body class="bg-[#0f172a] text-white">
 
-  <!-- navbar -->
-  <nav class="bg-[#1e293b] shadow-md">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex justify-between h-16 items-center">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center space-x-3">
-          <img src="images/produk.png" alt="Wastara" class="h-10 w-auto">
-          <span class="text-xl font-bold text-white">Wastara</span>
-        </a>
+<body class="dark">
 
-        <!-- Tombol menu (mobile) -->
-        <div class="flex md:hidden">
-          <button id="menu-btn" class="text-white text-2xl focus:outline-none">
-            ☰
-          </button>
-        </div>
+  <!-- NAVBAR -->
+  <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="index.html" class="flex items-center space-x-3">
+        <img src="images/produk.png" alt="Wastara" class="h-10 w-auto">
+        <span class="text-xl font-bold">Wastara</span>
+      </a>
 
-        <!-- Menu desktop -->
-        <div class="hidden md:flex space-x-6">
-          <a href="index.html" class="hover:text-green-400">Beranda</a>
-          <a href="produk.html" class="hover:text-green-400">Produk</a>
-          <a href="tentang.html" class="hover:text-green-400">Tentang</a>
-        </div>
+      <!-- TOGGLE MODE -->
+      <button id="toggle-mode" class="px-4 py-2 bg-green-500 rounded-lg text-white hover:bg-green-600">
+        🌙 Night
+      </button>
+
+      <div class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-green-400">Beranda</a>
+        <a href="produk.html" class="hover:text-green-400">Produk</a>
+        <a href="tentang.html" class="hover:text-green-400">Tentang</a>
       </div>
-    </div>
-
-    <!-- Menu mobile (dropdown) -->
-    <div id="mobile-menu" class="hidden md:hidden px-4 pb-3 space-y-2 bg-[#1e293b]">
-      <a href="index.html" class="block hover:text-green-400">Beranda</a>
-      <a href="produk.html" class="block hover:text-green-400">Produk</a>
-      <a href="tentang.html" class="block hover:text-green-400">Tentang</a>
-    </div>
   </nav>
 
-  <!-- daftar produk -->
+  <!-- GRID PRODUK -->
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
-    <!-- produk 1 -->
-    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" 
-           alt="Donat Manis" class="w-full h-40 object-cover">
+
+    <!-- PRODUK 1 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80"
+           class="w-full h-40 object-cover">
       <div class="p-4">
         <h2 class="text-lg font-bold">Donat Isi</h2>
-        <p class="text-gray-300 text-sm mb-1">Donat sisa produksi.</p>
+        <p class="opacity-80 text-sm mb-1">Donat sisa produksi.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 02 Okt 2025</p>
-        <span class="text-green-400 font-semibold block mb-3">Rp 5.000</span>
-        <a href="beli.html?produk=Donat%20Isi&harga=5000" 
+        <span class="text-green-500 font-semibold block mb-3">Rp 5.000</span>
+        <a href="beli.html?produk=Donat%20Isi&harga=5000"
            class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
           Beli Sekarang
         </a>
       </div>
     </div>
 
-    <!-- produk 2 -->
-    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80" 
-           alt="Nasi Box" class="w-full h-40 object-cover">
+    <!-- PRODUK 2 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80"
+           class="w-full h-40 object-cover">
       <div class="p-4">
         <h2 class="text-lg font-bold">Nasi Box A</h2>
-        <p class="text-gray-300 text-sm mb-1">Nasi sayur & ayam suwir.</p>
+        <p class="opacity-80 text-sm mb-1">Nasi sayur & ayam suwir.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 27 Sep 2025</p>
-        <span class="text-green-400 font-semibold block mb-3">Rp 15.000</span>
-        <a href="beli.html?produk=Nasi%20Box%20A&harga=15000" 
+        <span class="text-green-500 font-semibold block mb-3">Rp 15.000</span>
+        <a href="beli.html?produk=Nasi%20Box%20A&harga=15000"
            class="block bg-yellow-500 text-center text-white px-4 py-2 rounded-lg hover:bg-yellow-600">
           Beli Sekarang
         </a>
       </div>
     </div>
 
-    <!-- produk 3 -->
-    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
-      <img src="images/coklat.jpg" 
-           alt="Roti Cokelat" class="w-full h-40 object-cover">
+    <!-- PRODUK 3 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="images/coklat.jpg" class="w-full h-40 object-cover">
       <div class="p-4">
         <h2 class="text-lg font-bold">Roti Cokelat</h2>
-        <p class="text-gray-300 text-sm mb-1">Roti produksi pagi ini.</p>
+        <p class="opacity-80 text-sm mb-1">Roti produksi pagi ini.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 29 Sep 2025</p>
-        <span class="text-green-400 font-semibold block mb-3">Rp 8.000</span>
-        <a href="beli.html?produk=Roti%20Cokelat&harga=8000" 
+        <span class="text-green-500 font-semibold block mb-3">Rp 8.000</span>
+        <a href="beli.html?produk=Roti%20Cokelat&harga=8000"
            class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
           Beli Sekarang
         </a>
       </div>
     </div>
 
-    <!-- produk 4 -->
-    <div class="bg-[#1e293b] rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-           alt="Apel Segar" class="w-full h-40 object-cover">
+    <!-- PRODUK 4 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=800&q=80"
+           class="w-full h-40 object-cover">
       <div class="p-4">
         <h2 class="text-lg font-bold">Apel</h2>
-        <p class="text-gray-300 text-sm mb-1">Segar dan siap dikonsumsi.</p>
+        <p class="opacity-80 text-sm mb-1">Segar dan siap dikonsumsi.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 31 Des 2025</p>
-        <span class="text-green-400 font-semibold block mb-3">Rp 23.000</span>
-        <a href="beli.html?produk=Apel&harga=23000" 
+        <span class="text-green-500 font-semibold block mb-3">Rp 23.000</span>
+        <a href="beli.html?produk=Apel&harga=23000"
            class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
           Beli Sekarang
         </a>
       </div>
     </div>
+
   </section>
 
-  <!-- tombol unggah via WhatsApp -->
- <!-- tombol unggah via WhatsApp -->
-<div class="text-center pb-10">
-  <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara%2C%0ASaya%20ingin%20mengunggah%20produk%20baru.%0A%0ANama%20Produk%3A%20...%0ATanggal%20Expired%3A%20...%0AJumlah%3A%20..."
-     target="_blank"
-     class="bg-blue-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-blue-600">
-    Unggah Produk via WhatsApp
-  </a>
-</div>
+  <!-- UPLOAD VIA WA -->
+  <div class="text-center pb-10">
+    <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara%2C%0ASaya%20ingin%20mengunggah%20produk%20baru."
+       target="_blank"
+       class="bg-blue-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-blue-600">
+      Unggah Produk via WhatsApp
+    </a>
+  </div>
 
-  <!-- Script toggle mobile menu -->
+  <!-- SCRIPT MODE -->
   <script>
-    const btn = document.getElementById('menu-btn');
-    const menu = document.getElementById('mobile-menu');
+    const body = document.body;
+    const toggleBtn = document.getElementById("toggle-mode");
 
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+    // Load mode dari localStorage
+    const savedMode = localStorage.getItem("mode") || "dark";
+    body.className = savedMode;
+    toggleBtn.textContent = savedMode === "dark" ? "🌙 Night" : "☀️ Light";
+
+    // Toggle mode
+    toggleBtn.addEventListener("click", () => {
+      if (body.classList.contains("dark")) {
+        body.classList.replace("dark", "light");
+        toggleBtn.textContent = "☀️ Light";
+        localStorage.setItem("mode", "light");
+      } else {
+        body.classList.replace("light", "dark");
+        toggleBtn.textContent = "🌙 Night";
+        localStorage.setItem("mode", "dark");
+      }
     });
   </script>
+
 </body>
 </html>
-
-
-
