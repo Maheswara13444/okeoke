@@ -86,29 +86,7 @@
   </div>
 
   <script>
-    const body = document.body;
-    const lightBtn = document.getElementById("light-mode");
-    const darkBtn = document.getElementById("dark-mode");
-    const lightMobile = document.getElementById("light-mode-mobile");
-    const darkMobile = document.getElementById("dark-mode-mobile");
-    const toggleMenu = document.getElementById("toggleMenu");
-    const mobileMenu = document.getElementById("mobileMenu");
-
-    toggleMenu.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
-
-    const savedMode = localStorage.getItem("mode") || "dark";
-    body.className = savedMode;
-
-    function setMode(mode) {
-      body.className = mode;
-      localStorage.setItem("mode", mode);
-    }
-
-    lightBtn.onclick = () => setMode("light");
-    darkBtn.onclick = () => setMode("dark");
-    lightMobile.onclick = () => setMode("light");
-    darkMobile.onclick = () => setMode("dark");
-  </script>
+    
 
 </body>
 </html>
