@@ -10,7 +10,7 @@
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
-      background: white; /* background diubah menjadi putih */
+      background: white;
     }
 
     body.fade-in { opacity: 1; }
@@ -25,7 +25,7 @@
 <body class="text-slate-800">
   <div class="overlay">
 
-    <!-- navbar tanpa logo gambar -->
+    <!-- NAVBAR -->
     <nav class="flex justify-between items-center p-4 bg-white shadow-md">
       <a href="index.html" class="flex items-center space-x-3 nav-link">
         <img src="images/Logo_roti.jpeg" alt="Wastara" class="h-10 w-auto rounded-full shadow" />
@@ -43,7 +43,7 @@
       </div>
     </nav>
 
-    <!-- hero -->
+    <!-- HERO -->
     <section class="flex flex-col items-center justify-center text-center p-6">
       <h2 class="text-3xl font-bold mb-4 text-slate-900">Jual & Beli Makanan Sisa — Aman dan Transparan</h2>
       <p class="text-slate-600 max-w-2xl mb-6">
@@ -60,23 +60,36 @@
       </div>
     </section>
 
-    <!-- section gambar tambahan -->
+    <!-- GALERI GAMBAR -->
     <section class="p-6 flex flex-col items-center">
       <h3 class="text-2xl font-semibold text-slate-900 mb-4">Makanan yang Kami Selamatkan</h3>
+
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl w-full">
-        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1733967095/attached_image/7-makanan-korea-yang-menyehatkan-cocok-di-lidah-lokal.jpg" class="rounded-xl shadow-md" alt="Sample 1" />
-        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800" class="rounded-xl shadow-md" alt="Sample 2" />
-        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=800" class="rounded-xl shadow-md" alt="Sample 3" />
+
+        <!-- Gambar 1 -->
+        <img src="https://res.cloudinary.com/dk0z4ums3/image/upload/v1733967095/attached_image/7-makanan-korea-yang-menyehatkan-cocok-di-lidah-lokal.jpg"
+             class="rounded-xl shadow-md" alt="Sample 1" />
+
+        <!-- Gambar 2 -->
+        <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800"
+             class="rounded-xl shadow-md" alt="Sample 2" />
+
+        <!-- Gambar 3 (Sudah Diganti) -->
+        <img src="https://cdn1-production-images-kly.akamaized.net/JvGjufH6G_QJyYwcmBHQYaWV7hE=/0x294:4500x2831/1200x675/filters:quality(75):format(webp)/kly-media-production/amilova-production/published/2024/01/08/ljHRUbYpT4pTBtcwM5H7.jpg"
+             class="rounded-xl shadow-md" alt="Makanan Khas Daerah" />
+
       </div>
     </section>
 
   </div>
 
   <script>
+    // Fade animation
     document.addEventListener("DOMContentLoaded", () => {
       document.body.classList.add("fade-in");
     });
 
+    // Smooth transition navigation
     document.querySelectorAll(".nav-link").forEach(link => {
       link.addEventListener("click", (e) => {
         const target = link.getAttribute("href");
@@ -88,6 +101,7 @@
       });
     });
 
+    // Mobile menu toggle
     const menuBtn = document.getElementById("menuBtn");
     const menu = document.getElementById("menu");
     menuBtn.addEventListener("click", () => menu.classList.toggle("hidden"));
