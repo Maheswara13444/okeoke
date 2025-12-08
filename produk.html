@@ -5,26 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wastara - Produk</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Font Poppins -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     body { font-family: 'Poppins', sans-serif; }
 
-    /* Light Mode */
+    /* Light Mode - sama seperti index */
     .light {
-      background: linear-gradient(135deg, #f5e8d3, #e8d5b5);
-      color: #1a1a1a;
-    }
-    .light .navbar, .light .card {
       background: white;
       color: #1a1a1a;
     }
+    .light .navbar {
+      background: white;
+      color: #1a1a1a;
+      border-bottom: 1px solid #e5e5e5;
+    }
+    .light .card {
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .light a.buy-btn {
+      background: #8b5a2b;
+      color: white;
+    }
+    .light a.buy-btn:hover {
+      background: #704621;
+    }
 
-    /* Dark Mode */
+    /* Tombol Light Mode */
+    .light-btn-phone {
+      background: #d7b894 !important;
+      border: none;
+      color: #4a2f15 !important;
+    }
+
+    /* Dark Mode tetap seperti semula */
     .dark {
       background: #0f172a;
       color: white;
@@ -38,29 +55,25 @@
 
 <body class="dark">
 
-  <!-- NAVBAR -->
   <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-      
-      <!-- Logo -->
       <a href="index.html" class="flex items-center space-x-3">
         <img src="images/produk.png" alt="Wastara" class="h-10 w-auto">
         <span class="text-xl font-bold">Wastara</span>
       </a>
 
-      <!-- MODE BUTTONS -->
-      <div class="flex space-x-3">
+      <!-- Mode Buttons -->
+      <div class="flex space-x-3 md:space-x-3">
         <button id="light-mode"
-          class="px-4 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:shadow-lg transition-all text-white">
+          class="px-4 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:shadow-lg transition-all text-white md:px-4 md:py-2 light-btn-phone">
           ☀️ Light
         </button>
 
         <button id="dark-mode"
-          class="px-4 py-2 rounded-xl border border-white/20 bg-black/20 backdrop-blur-md hover:bg-black/30 hover:shadow-lg transition-all text-white">
+          class="px-4 py-2 rounded-xl border border-white/20 bg-black/20 backdrop-blur-md hover:bg-black/30 hover:shadow-lg transition-all text-white md:px-4 md:py-2">
           🌙 Night
         </button>
       </div>
 
-      <!-- Menu Desktop -->
       <div class="hidden md:flex space-x-6">
         <a href="index.html" class="hover:text-green-400">Beranda</a>
         <a href="produk.html" class="hover:text-green-400">Produk</a>
@@ -68,10 +81,9 @@
       </div>
   </nav>
 
-  <!-- GRID PRODUK -->
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
 
-    <!-- PRODUK 1 -->
+    <!-- Contoh produk dengan palette selaras -->
     <div class="card rounded-xl shadow-lg overflow-hidden">
       <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80"
            class="w-full h-40 object-cover">
@@ -80,63 +92,12 @@
         <p class="opacity-80 text-sm mb-1">Donat sisa produksi.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 02 Okt 2025</p>
         <span class="text-green-500 font-semibold block mb-3">Rp 5.000</span>
-        <a href="beli.html?produk=Donat%20Isi&harga=5000"
-           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-          Beli Sekarang
-        </a>
-      </div>
-    </div>
-
-    <!-- PRODUK 2 -->
-    <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80"
-           class="w-full h-40 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold">Nasi Box A</h2>
-        <p class="opacity-80 text-sm mb-1">Nasi sayur & ayam suwir.</p>
-        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 27 Sep 2025</p>
-        <span class="text-green-500 font-semibold block mb-3">Rp 15.000</span>
-        <a href="beli.html?produk=Nasi%20Box%20A&harga=15000"
-           class="block bg-yellow-500 text-center text-white px-4 py-2 rounded-lg hover:bg-yellow-600">
-          Beli Sekarang
-        </a>
-      </div>
-    </div>
-
-    <!-- PRODUK 3 -->
-    <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="images/coklat.jpg" class="w-full h-40 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold">Roti Cokelat</h2>
-        <p class="opacity-80 text-sm mb-1">Roti produksi pagi ini.</p>
-        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 29 Sep 2025</p>
-        <span class="text-green-500 font-semibold block mb-3">Rp 8.000</span>
-        <a href="beli.html?produk=Roti%20Cokelat&harga=8000"
-           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-          Beli Sekarang
-        </a>
-      </div>
-    </div>
-
-    <!-- PRODUK 4 -->
-    <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=800&q=80"
-           class="w-full h-40 object-cover">
-      <div class="p-4">
-        <h2 class="text-lg font-bold">Apel</h2>
-        <p class="opacity-80 text-sm mb-1">Segar dan siap dikonsumsi.</p>
-        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 31 Des 2025</p>
-        <span class="text-green-500 font-semibold block mb-3">Rp 23.000</span>
-        <a href="beli.html?produk=Apel&harga=23000"
-           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
-          Beli Sekarang
-        </a>
+        <a href="beli.html?produk=Donat%20Isi&harga=5000" class="buy-btn block text-center px-4 py-2 rounded-lg">Beli Sekarang</a>
       </div>
     </div>
 
   </section>
 
-  <!-- UPLOAD VIA WA -->
   <div class="text-center pb-10">
     <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara%2C%0ASaya%20ingin%20mengunggah%20produk%20baru."
        target="_blank"
@@ -145,23 +106,19 @@
     </a>
   </div>
 
-  <!-- MODE SCRIPT -->
   <script>
     const body = document.body;
     const lightBtn = document.getElementById("light-mode");
     const darkBtn = document.getElementById("dark-mode");
 
-    // Load saved mode
     const savedMode = localStorage.getItem("mode") || "dark";
     body.className = savedMode;
 
-    // Light Mode
     lightBtn.addEventListener("click", () => {
       body.className = "light";
       localStorage.setItem("mode", "light");
     });
 
-    // Dark Mode
     darkBtn.addEventListener("click", () => {
       body.className = "dark";
       localStorage.setItem("mode", "dark");
@@ -169,4 +126,4 @@
   </script>
 
 </body>
-</html> gantilah tampilan light modenya sesuai dengan yang ada di index serta sesuaikan tampilan button pada handphone
+</html>
