@@ -14,44 +14,24 @@
   <style>
     body { font-family: 'Poppins', sans-serif; }
 
-    /* Light Mode (Disamakan dengan INDEX – putih + coklat) */
+    /* Light Mode */
     .light {
-      background: white;
-      color: #3a2e1f;
+      background: linear-gradient(135deg, #f5e8d3, #e8d5b5);
+      color: #1a1a1a;
     }
-    .light .navbar {
+    .light .navbar, .light .card {
       background: white;
-      color: #3a2e1f;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    .light .card {
-      background: white;
-      color: #3a2e1f;
-      border: 1px solid #e5e7eb;
+      color: #1a1a1a;
     }
 
-    .light .btn-brown {
-      background: #a0522d;
+    /* Dark Mode */
+    .dark {
+      background: #0f172a;
       color: white;
     }
-    .light .btn-brown:hover {
-      background: #8c4527;
-    }
-
-    /* Dark Mode */ */
-    .dark {
-  /* mode gelap tetap default tanpa perubahan */
-}
     .dark .navbar, .dark .card {
       background: #1e293b;
       color: white;
-    }
-
-    /* Responsive button adjustments for mobile */
-    .btn-mobile {
-      padding: 10px 14px;
-      font-size: 14px;
-      border-radius: 10px;
     }
   </style>
 </head>
@@ -59,7 +39,7 @@
 <body class="dark">
 
   <!-- NAVBAR -->
-  <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between sticky top-0 z-50">
+  <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Logo -->
       <a href="index.html" class="flex items-center space-x-3">
@@ -68,56 +48,62 @@
       </a>
 
       <!-- MODE BUTTONS -->
-      <div class="flex space-x-3 md:space-x-3">
+      <div class="flex space-x-3">
         <button id="light-mode"
-          class="btn-mobile px-4 py-2 rounded-xl border border-white/20 bg-white/10 hover:bg-white/20 transition-all text-white md:px-4 md:py-2">
-          ☀️
+          class="px-4 py-2 rounded-xl border border-white/20 bg-white/10 backdrop-blur-md hover:bg-white/20 hover:shadow-lg transition-all text-white">
+          ☀️ Light
         </button>
 
         <button id="dark-mode"
-          class="btn-mobile px-4 py-2 rounded-xl border border-white/20 bg-black/20 hover:bg-black/30 transition-all text-white md:px-4 md:py-2">
-          🌙
+          class="px-4 py-2 rounded-xl border border-white/20 bg-black/20 backdrop-blur-md hover:bg-black/30 hover:shadow-lg transition-all text-white">
+          🌙 Night
         </button>
       </div>
 
       <!-- Menu Desktop -->
       <div class="hidden md:flex space-x-6">
-        <a href="index.html" class="hover:text-amber-700">Beranda</a>
-        <a href="produk.html" class="hover:text-amber-700">Produk</a>
-        <a href="tentang.html" class="hover:text-amber-700">Tentang</a>
+        <a href="index.html" class="hover:text-green-400">Beranda</a>
+        <a href="produk.html" class="hover:text-green-400">Produk</a>
+        <a href="tentang.html" class="hover:text-green-400">Tentang</a>
       </div>
   </nav>
 
   <!-- GRID PRODUK -->
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
 
-    <!-- PRODUK TEMPLATE -->
+    <!-- PRODUK 1 -->
     <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
+      <img src="https://images.unsplash.com/photo-1509365465985-25d11c17e812?auto=format&fit=crop&w=800&q=80"
+           class="w-full h-40 object-cover">
       <div class="p-4">
         <h2 class="text-lg font-bold">Donat Isi</h2>
         <p class="opacity-80 text-sm mb-1">Donat sisa produksi.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 02 Okt 2025</p>
         <span class="text-green-500 font-semibold block mb-3">Rp 5.000</span>
-        <a href="beli.html?produk=Donat%20Isi&harga=5000" class="block btn-brown text-center text-white px-4 py-2 rounded-lg btn-brown:hover btn-mobile">
+        <a href="beli.html?produk=Donat%20Isi&harga=5000"
+           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
           Beli Sekarang
         </a>
       </div>
     </div>
 
+    <!-- PRODUK 2 -->
     <div class="card rounded-xl shadow-lg overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
+      <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80"
+           class="w-full h-40 object-cover">
       <div class="p-4">
         <h2 class="text-lg font-bold">Nasi Box A</h2>
         <p class="opacity-80 text-sm mb-1">Nasi sayur & ayam suwir.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 27 Sep 2025</p>
         <span class="text-green-500 font-semibold block mb-3">Rp 15.000</span>
-        <a href="beli.html?produk=Nasi%20Box%20A&harga=15000" class="block btn-brown text-center text-white px-4 py-2 rounded-lg btn-brown:hover btn-mobile">
+        <a href="beli.html?produk=Nasi%20Box%20A&harga=15000"
+           class="block bg-yellow-500 text-center text-white px-4 py-2 rounded-lg hover:bg-yellow-600">
           Beli Sekarang
         </a>
       </div>
     </div>
 
+    <!-- PRODUK 3 -->
     <div class="card rounded-xl shadow-lg overflow-hidden">
       <img src="images/coklat.jpg" class="w-full h-40 object-cover">
       <div class="p-4">
@@ -125,7 +111,24 @@
         <p class="opacity-80 text-sm mb-1">Roti produksi pagi ini.</p>
         <p class="text-red-400 text-sm mb-2">Kadaluarsa: 29 Sep 2025</p>
         <span class="text-green-500 font-semibold block mb-3">Rp 8.000</span>
-        <a href="beli.html?produk=Roti%20Cokelat&harga=8000" class="block btn-brown text-center text-white px-4 py-2 rounded-lg btn-brown:hover btn-mobile">
+        <a href="beli.html?produk=Roti%20Cokelat&harga=8000"
+           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
+          Beli Sekarang
+        </a>
+      </div>
+    </div>
+
+    <!-- PRODUK 4 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=800&q=80"
+           class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Apel</h2>
+        <p class="opacity-80 text-sm mb-1">Segar dan siap dikonsumsi.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 31 Des 2025</p>
+        <span class="text-green-500 font-semibold block mb-3">Rp 23.000</span>
+        <a href="beli.html?produk=Apel&harga=23000"
+           class="block bg-green-500 text-center text-white px-4 py-2 rounded-lg hover:bg-green-600">
           Beli Sekarang
         </a>
       </div>
@@ -135,8 +138,9 @@
 
   <!-- UPLOAD VIA WA -->
   <div class="text-center pb-10">
-    <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara%2C%0ASaya%20ingin%20mengunggah%20produk%20baru." target="_blank"
-       class="bg-blue-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-blue-600 btn-mobile md:px-6 md:py-3">
+    <a href="https://wa.me/6282132087833?text=Halo%20Admin%20Wastara%2C%0ASaya%20ingin%20mengunggah%20produk%20baru."
+       target="_blank"
+       class="bg-blue-500 px-6 py-3 rounded-lg text-white font-semibold hover:bg-blue-600">
       Unggah Produk via WhatsApp
     </a>
   </div>
@@ -147,14 +151,17 @@
     const lightBtn = document.getElementById("light-mode");
     const darkBtn = document.getElementById("dark-mode");
 
+    // Load saved mode
     const savedMode = localStorage.getItem("mode") || "dark";
     body.className = savedMode;
 
+    // Light Mode
     lightBtn.addEventListener("click", () => {
       body.className = "light";
       localStorage.setItem("mode", "light");
     });
 
+    // Dark Mode
     darkBtn.addEventListener("click", () => {
       body.className = "dark";
       localStorage.setItem("mode", "dark");
@@ -162,4 +169,4 @@
   </script>
 
 </body>
-</html>
+</html> gantilah tampilan light modenya sesuai dengan yang ada di index serta sesuaikan tampilan button pada handphone
