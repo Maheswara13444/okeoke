@@ -63,17 +63,18 @@
         <a href="tentang.html" class="hover:text-green-500">Tentang</a>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button id="toggleMenu" class="md:hidden text-2xl relative z-50">☰</button>
-
+       <!-- mobile menu button -->
+    <div class="sm:hidden">
+      <button id="menuBtn" class="text-slate-800 focus:outline-none text-2xl">☰</button>
+    </div>
   </nav>
 
-  <!-- Mobile Dropdown Menu (DIPERBAIKI) -->
-  <div id="mobileMenu"
-       class="hidden md:hidden bg-white shadow-lg px-4 py-3 space-y-4 absolute w-full z-40 top-16 border-b border-slate-200">
-      <a href="index.html" class="block hover:text-green-500">Beranda</a>
-      <a href="produk.html" class="block hover:text-green-500">Produk</a>
-      <a href="tentang.html" class="block hover:text-green-500">Tentang</a>
+  <!-- menu dropdown mobile – samakan warna -->
+  <div id="menuDropdown"
+       class="hidden flex-col bg-white px-4 py-3 space-y-2 sm:hidden transition-all duration-300 ease-in-out shadow">
+    <a href="index.html" class="block text-slate-700 hover:text-amber-700">Beranda</a>
+    <a href="produk.html" class="block text-slate-700 hover:text-amber-700">Produk</a>
+    <a href="tentang.html" class="block text-slate-700 hover:text-amber-700">Tentang</a>
   </div>
 
   <!-- PRODUK CARD -->
@@ -148,3 +149,4 @@
 
 </body>
 </html>
+
