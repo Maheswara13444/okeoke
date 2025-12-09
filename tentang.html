@@ -6,54 +6,65 @@
   <title>Foodways - Tentang Kami</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body class="bg-[#0f172a] text-white">
+
   <!-- navbar -->
   <nav class="flex justify-between items-center p-4 bg-[#1e293b] shadow-md">
-    <h1 class="text-xl sm:text-2xl font-bold">Foodways</h1>
+    <h1 class="text-xl sm:text-2xl font-bold text-green-400">Foodways</h1>
     <div class="hidden sm:flex space-x-6">
       <a href="index.html" class="hover:text-green-400">Beranda</a>
       <a href="produk.html" class="hover:text-green-400">Produk</a>
       <a href="tentang.html" class="hover:text-green-400">Tentang</a>
     </div>
-    <!-- menu mobile -->
+
+    <!-- mobile menu button -->
     <div class="sm:hidden">
       <button id="menuBtn" class="text-white focus:outline-none text-2xl">☰</button>
     </div>
   </nav>
 
-  <!-- menu dropdown mobile -->
-  <div id="menuDropdown" class="hidden flex-col bg-[#1e293b] px-4 py-3 space-y-2 sm:hidden transition-all duration-300 ease-in-out">
+  <!-- mobile dropdown -->
+  <div id="menuDropdown"
+       class="hidden flex-col bg-[#1e293b] px-4 py-3 space-y-2 sm:hidden transition-all duration-300 ease-in-out">
     <a href="index.html" class="block hover:text-green-400">Beranda</a>
     <a href="produk.html" class="block hover:text-green-400">Produk</a>
     <a href="tentang.html" class="block hover:text-green-400">Tentang</a>
   </div>
 
-  <!-- hero -->
-  <header class="relative h-[60vh] sm:h-[70vh] bg-[url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center">
-    <div class="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-center px-4">
+  <!-- hero section -->
+  <header
+    class="relative h-[60vh] sm:h-[70vh] bg-[url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1200&q=80')] bg-cover bg-center">
+
+    <div class="absolute inset-0 bg-[#0f172a]/80 flex items-center justify-center px-4">
       <h2 class="text-3xl sm:text-4xl font-bold text-center leading-snug">
         Tentang <span class="text-green-400">Foodways</span>
       </h2>
     </div>
   </header>
 
-  <!-- tentang -->
+  <!-- about section -->
   <section class="p-6 sm:p-10 max-w-4xl mx-auto mt-8">
-    <div class="bg-[#1e293b] rounded-2xl shadow-xl p-6 sm:p-8 transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl">
+    <div
+      class="bg-[#1e293b] rounded-2xl shadow-xl p-6 sm:p-8 transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl">
+
       <p class="text-gray-300 mb-4 text-base sm:text-lg leading-relaxed sm:leading-loose">
-        <span class="text-green-400 font-semibold">Foodways</span> adalah platform yang menghubungkan penjual 
-        (<span class="italic">kafe, restoran, toko roti</span>) dengan pembeli untuk menjual makanan sisa 
-        yang masih layak konsumsi. Dengan mencantumkan tanggal kedaluwarsa, kami ingin menciptakan sistem 
+        <span class="text-green-400 font-semibold">Foodways</span> adalah platform yang menghubungkan penjual
+        (<span class="italic">kafe, restoran, toko roti</span>) dengan pembeli untuk menjual makanan sisa
+        yang masih layak konsumsi. Dengan mencantumkan tanggal kedaluwarsa, kami ingin menciptakan sistem
         yang transparan, aman, dan membantu mengurangi limbah makanan.
       </p>
+
       <p class="text-gray-300 mb-4 text-base sm:text-lg leading-relaxed sm:leading-loose">
-        ✨ Visi kami adalah menghadirkan makanan berkualitas dengan harga terjangkau, 
+        ✨ Visi kami adalah menghadirkan makanan berkualitas dengan harga terjangkau,
         sekaligus mendukung keberlanjutan lingkungan dengan meminimalisir makanan terbuang.
       </p>
+
       <p class="text-gray-300 text-base sm:text-lg font-medium">
-        Bergabunglah dengan kami dalam gerakan 
+        Bergabunglah dengan kami dalam gerakan
         <span class="text-green-400 font-semibold">#SaveFood #SaveEarth 🌍</span>
       </p>
+
     </div>
   </section>
 
@@ -65,9 +76,11 @@
   <script>
     const menuBtn = document.getElementById("menuBtn");
     const menuDropdown = document.getElementById("menuDropdown");
+
     menuBtn.addEventListener("click", () => {
       menuDropdown.classList.toggle("hidden");
     });
   </script>
+
 </body>
 </html>
