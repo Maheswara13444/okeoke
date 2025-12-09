@@ -36,17 +36,19 @@
       background: #704621; 
     }
 
-    /* MOBILE MENU FIX */
-    #mobileMenu {
-      display: none;
+    #mobileMenu { display: none; }
+
+    @media (max-width: 768px) {
+      #mobileMenu { display: block; }
+      .desktop-menu { display: none; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between relative">
+  <!-- NAVBAR FIXED (DIPERBAIKI HAMBURGER) -->
+  <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between relative z-50 bg-white">
 
       <!-- LOGO -->
       <a href="index.html" class="flex items-center space-x-3">
@@ -62,17 +64,17 @@
       </div>
 
       <!-- Mobile Menu Button -->
-      <button id="toggleMenu" class="md:hidden text-2xl">☰</button>
+      <button id="toggleMenu" class="md:hidden text-2xl relative z-50">☰</button>
+
   </nav>
 
-  <!-- MOBILE DROPDOWN (PERBAIKAN) -->
+  <!-- Mobile Dropdown Menu (DIPERBAIKI) -->
   <div id="mobileMenu"
-       class="hidden bg-white shadow-lg px-4 py-3 space-y-3 md:hidden absolute w-full z-50 border-b border-slate-200">
+       class="hidden md:hidden bg-white shadow-lg px-4 py-3 space-y-4 absolute w-full z-40 top-16 border-b border-slate-200">
       <a href="index.html" class="block hover:text-green-500">Beranda</a>
       <a href="produk.html" class="block hover:text-green-500">Produk</a>
       <a href="tentang.html" class="block hover:text-green-500">Tentang</a>
   </div>
-
 
   <!-- PRODUK CARD -->
   <section class="grid mx-auto max-w-6xl justify-center grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 p-6">
@@ -89,7 +91,41 @@
       </div>
     </div>
 
-    <!-- ... (produk 2, 4, 5 tetap sama) ... -->
+    <!-- Produk 2 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Roti Gandum</h2>
+        <p class="opacity-80 text-sm mb-1">Roti sisa pagi hari.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 01 Okt 2025</p>
+        <span class="text-green-500 font-semibold block mb-3">Rp 4.000</span>
+        <a href="beli.html?produk=Roti%20Gandum&harga=4000" class="buy-btn block text-center px-4 py-2 rounded-lg">Beli Sekarang</a>
+      </div>
+    </div>
+
+    <!-- Produk 4 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Muffin Cokelat</h2>
+        <p class="opacity-80 text-sm mb-1">Muffin fresh baked.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 01 Okt 2025</p>
+        <span class="text-green-500 font-semibold block mb-3">Rp 6.000</span>
+        <a href="beli.html?produk=Muffin%20Cokelat&harga=6000" class="buy-btn block text-center px-4 py-2 rounded-lg">Beli Sekarang</a>
+      </div>
+    </div>
+
+    <!-- Produk 5 -->
+    <div class="card rounded-xl shadow-lg overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h2 class="text-lg font-bold">Sandwich Ayam</h2>
+        <p class="opacity-80 text-sm mb-1">Sandwich leftover dari kafe.</p>
+        <p class="text-red-400 text-sm mb-2">Kadaluarsa: 29 Sep 2025</p>
+        <span class="text-green-500 font-semibold block mb-3">Rp 8.000</span>
+        <a href="beli.html?produk=Sandwich%20Ayam&harga=8000" class="buy-btn block text-center px-4 py-2 rounded-lg">Beli Sekarang</a>
+      </div>
+    </div>
 
   </section>
 
