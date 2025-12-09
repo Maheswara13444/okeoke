@@ -19,6 +19,9 @@
       background: white;
       color: #1a1a1a;
       border-bottom: 1px solid #e5e5e5;
+      position: sticky;
+      top: 0;
+      z-index: 50;   /* ⭐ Navbar tidak akan tertutup */
     }
 
     .card {
@@ -37,7 +40,14 @@
     }
 
     /* Mobile menu */
-    #mobileMenu { display: none; }
+    #mobileMenu { 
+      display: none; 
+      position: absolute;
+      top: 64px;     /* ⭐ Tepat di bawah navbar */
+      left: 0;
+      width: 100%;
+      z-index: 40;   /* ⭐ Menu berada di depan konten */
+    }
 
     @media (max-width: 768px) {
       #mobileMenu { display: block; }
@@ -69,7 +79,7 @@
   </nav>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobileMenu" class="hidden md:hidden bg-white shadow-lg p-4 space-y-4">
+  <div id="mobileMenu" class="hidden bg-white shadow-lg p-4 space-y-4">
       <a href="index.html" class="block hover:text-green-500">Beranda</a>
       <a href="produk.html" class="block hover:text-green-500">Produk</a>
       <a href="tentang.html" class="block hover:text-green-500">Tentang</a>
@@ -102,8 +112,6 @@
       </div>
     </div>
 
-    <!-- Produk 3 (SALAD DIHAPUS) -->
-
     <!-- Produk 4 -->
     <div class="card rounded-xl shadow-lg overflow-hidden">
       <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
@@ -127,8 +135,6 @@
         <a href="beli.html?produk=Sandwich%20Ayam&harga=8000" class="buy-btn block text-center px-4 py-2 rounded-lg">Beli Sekarang</a>
       </div>
     </div>
-
-    <!-- Produk 6 (KUE TART MINI DIHAPUS) -->
 
   </section>
 
