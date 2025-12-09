@@ -20,13 +20,13 @@
       min-height: 100vh;
     }
 
-    /* --- Advertisement Fixed Sidebar (Gambar) --- */
+    /* --- Advertisement Fixed (Right Top) --- */
     .ads-right {
       position: fixed;
       right: 20px;
-      top: 210px; /* tidak menutupi header */
+      top: 80px;      /* sejajar header */
       width: 260px;
-      z-index: 20; /* selalu di bawah navbar */
+      z-index: 50;    /* di atas konten */
     }
 
     @media (max-width: 1024px) {
@@ -38,9 +38,7 @@
 <body class="text-slate-800">
   <div class="overlay">
 
-    <!-- ========================================== -->
-    <!-- 🔵 TOP BANNER IKLAN (CNN STYLE) -->
-    <!-- ========================================== -->
+    <!-- TOP BANNER IKLAN -->
     <div class="w-full bg-amber-100 border-b border-amber-300 p-4 shadow-sm">
       <div class="max-w-4xl mx-auto text-center">
 
@@ -60,9 +58,7 @@
       </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- 🔵 FIXED ADVERTISEMENT IMAGE (Right Side) -->
-    <!-- ========================================== -->
+    <!-- ADVERTISEMENT ON TOP RIGHT -->
     <aside class="ads-right">
       <div class="bg-white shadow-xl rounded-xl p-4 border">
         <h4 class="font-bold text-lg text-slate-900 mb-3">Iklan Sponsor</h4>
@@ -81,9 +77,8 @@
       </div>
     </aside>
 
-
-    <!-- navbar -->
-    <nav class="flex justify-between items-center p-4 bg-white shadow-md">
+    <!-- NAVBAR -->
+    <nav class="flex justify-between items-center p-4 bg-white shadow-md relative z-40">
       <a href="index.html" class="flex items-center space-x-3 nav-link">
         <img src="images/Logo_roti.jpeg" alt="Wastara"
              class="h-10 w-auto rounded-full shadow" />
@@ -100,7 +95,7 @@
       </div>
     </nav>
 
-    <!-- hero -->
+    <!-- HERO -->
     <section class="flex flex-col items-center justify-center text-center p-6">
       <h2 class="text-3xl font-bold mb-4 text-slate-900">Jual & Beli Makanan Sisa — Aman dan Transparan</h2>
       <p class="text-slate-600 max-w-2xl mb-6">
@@ -117,7 +112,7 @@
       </div>
     </section>
 
-    <!-- section gambar produk -->
+    <!-- IMAGES -->
     <section class="p-6 flex flex-col items-center">
       <h3 class="text-2xl font-semibold text-slate-900 mb-4">Makanan yang Kami Selamatkan</h3>
 
