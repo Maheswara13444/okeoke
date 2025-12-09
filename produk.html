@@ -35,19 +35,12 @@
     a.buy-btn:hover { 
       background: #704621; 
     }
-
-    #mobileMenu { display: none; }
-
-    @media (max-width: 768px) {
-      #mobileMenu { display: block; }
-      .desktop-menu { display: none; }
-    }
   </style>
 </head>
 
 <body>
 
-  <!-- NAVBAR FIXED (DIPERBAIKI HAMBURGER) -->
+  <!-- NAVBAR -->
   <nav class="navbar shadow-md px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between relative z-50 bg-white">
 
       <!-- LOGO -->
@@ -63,15 +56,16 @@
         <a href="tentang.html" class="hover:text-green-500">Tentang</a>
       </div>
 
-       <!-- mobile menu button -->
-    <div class="sm:hidden">
-      <button id="menuBtn" class="text-slate-800 focus:outline-none text-2xl">☰</button>
-    </div>
+      <!-- MOBILE BUTTON -->
+      <div class="md:hidden">
+        <button id="menuBtn" class="text-slate-800 focus:outline-none text-2xl">☰</button>
+      </div>
+
   </nav>
 
-  <!-- menu dropdown mobile – samakan warna -->
+  <!-- MOBILE DROPDOWN MENU -->
   <div id="menuDropdown"
-       class="hidden flex-col bg-white px-4 py-3 space-y-2 sm:hidden transition-all duration-300 ease-in-out shadow">
+       class="hidden flex-col bg-white px-4 py-3 space-y-2 md:hidden transition-all duration-300 ease-in-out shadow">
     <a href="index.html" class="block text-slate-700 hover:text-amber-700">Beranda</a>
     <a href="produk.html" class="block text-slate-700 hover:text-amber-700">Produk</a>
     <a href="tentang.html" class="block text-slate-700 hover:text-amber-700">Tentang</a>
@@ -104,7 +98,7 @@
       </div>
     </div>
 
-    <!-- Produk 4 -->
+    <!-- Produk 3 -->
     <div class="card rounded-xl shadow-lg overflow-hidden">
       <img src="https://images.unsplash.com/photo-1476718406336-bb5a9690ee2a?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
       <div class="p-4">
@@ -116,7 +110,7 @@
       </div>
     </div>
 
-    <!-- Produk 5 -->
+    <!-- Produk 4 -->
     <div class="card rounded-xl shadow-lg overflow-hidden">
       <img src="https://images.unsplash.com/photo-1495195134817-aeb325a55b65?auto=format&fit=crop&w=800&q=80" class="w-full h-40 object-cover">
       <div class="p-4">
@@ -138,15 +132,15 @@
     </a>
   </div>
 
+  <!-- FIXED SCRIPT -->
   <script>
-    const toggleMenu = document.getElementById("toggleMenu");
-    const mobileMenu = document.getElementById("mobileMenu");
+    const menuBtn = document.getElementById("menuBtn");
+    const menuDropdown = document.getElementById("menuDropdown");
 
-    toggleMenu.addEventListener("click", () => {
-      mobileMenu.classList.toggle("hidden");
+    menuBtn.addEventListener("click", () => {
+      menuDropdown.classList.toggle("hidden");
     });
   </script>
 
 </body>
 </html>
-
