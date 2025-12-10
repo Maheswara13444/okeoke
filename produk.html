@@ -4,16 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Produk - Wastara</title>
+
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- FONT SAMA PERSIS DENGAN INDEX -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <!-- SAME FONT STYLE AS INDEX (NO INTER FONT) -->
   <style>
-    * {
-      font-family: 'Inter', sans-serif;
-    }
-
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
@@ -23,9 +19,9 @@
   </style>
 </head>
 
-<body class="text-slate-800">
+<body class="text-slate-800 font-sans">
 
-<!-- NAVBAR SAMA PERSIS DENGAN INDEX -->
+<!-- NAVBAR (SAMA DENGAN INDEX) -->
 <nav class="flex justify-between items-center py-2 px-4 bg-white shadow-md relative z-40">
 
   <div class="flex items-center space-x-2">
@@ -85,7 +81,7 @@
          class="rounded-xl w-full h-44 object-cover mb-3" />
     <h3 class="text-lg font-semibold text-slate-900">Makanan Lokal</h3>
     <p class="text-slate-600 text-sm mt-1">Expired: 10 Desember 2025</p>
-    <p class="font-bold text-amber-700 mt-2">Rp 9.500</p>
+    <p="font-bold text-amber-700 mt-2">Rp 9.500</p>
     <button class="mt-3 w-full bg-amber-700 text-white py-2 rounded-lg hover:bg-amber-800">
       Beli Sekarang
     </button>
