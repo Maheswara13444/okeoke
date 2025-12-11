@@ -5,79 +5,202 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pembayaran - Wastara</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    function getQueryParam(param) {
-      const urlParams = new URLSearchParams(window.location.search);
-      return urlParams.get(param);
-    }
-
-    window.onload = () => {
-      const produk = getQueryParam("produk") || "Produk";
-      const harga = getQueryParam("harga") || "0";
-
-      document.getElementById("namaProduk").innerText = produk;
-      document.getElementById("hargaProduk").innerText = "Rp " + harga;
-    };
-
-    function pilihPembayaran(metode) {
-      document.getElementById("metodeDipilih").innerText = metode;
-      document.getElementById("sectionQR").classList.remove("hidden");
-      window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" });
-    }
-  </script>
 </head>
-<body class="bg-[#0f172a] text-white flex items-center justify-center min-h-screen p-3">
-  <div class="bg-[#1e293b] p-5 rounded-xl shadow-lg w-full max-w-md">
+<body class="bg-gray-50 text-gray-900">
 
-    <!-- Judul -->
-    <h2 class="text-2xl font-bold text-center mb-6">Pembayaran</h2>
-
-    <!-- Produk & Harga -->
-    <div class="mb-6 text-center">
-      <p class="text-base">Produk:</p>
-      <p id="namaProduk" class="text-lg font-semibold"></p>
-      <p class="mt-3 text-base">Harga:</p>
-      <p id="hargaProduk" class="text-xl text-green-400 font-bold"></p>
+  <!-- Navbar -->
+  <header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
+      <h1 class="font-bold text-xl">Wastara</h1>
+      <nav class="space-x-6 hidden md:block">
+        <a href="#" class="hover:text-orange-500">Produk</a>
+        <a href="#" class="hover:text-orange-500">Tentang</a>
+      </nav>
     </div>
+  </header>
 
-    <!-- Pilihan Metode -->
-    <h3 class="text-lg font-semibold mb-4">Pilih Metode Pembayaran:</h3>
-    <div class="space-y-3">
-      <button onclick="pilihPembayaran('GoPay')" class="w-full flex items-center justify-start gap-3 bg-blue-500 px-4 py-3 rounded-lg font-semibold hover:bg-blue-600 transition">
-        <img src="images/gopay.jpeg" alt="GoPay" class="h-7 w-7 bg-white rounded-full p-1">
-        <span class="text-base">Bayar dengan GoPay</span>
-      </button>
+  <main class="pt-20 max-w-5xl mx-auto p-4 grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-      <button onclick="pilihPembayaran('OVO')" class="w-full flex items-center justify-start gap-3 bg-purple-600 px-4 py-3 rounded-lg font-semibold hover:bg-purple-700 transition">
-        <img src="images/OVO.png" alt="OVO" class="h-7 w-7">
-        <span class="text-base">Bayar dengan OVO</span>
-      </button>
+    <!-- Left Section (Alamat & Produk) -->
+    <section class="lg:col-span-2 space-y-5">
 
-      <button onclick="pilihPembayaran('DANA')" class="w-full flex items-center justify-start gap-3 bg-blue-400 px-4 py-3 rounded-lg font-semibold hover:bg-blue-500 transition">
-        <img src="https://seeklogo.com/images/D/dana-indonesia-logo-77CCDC2240-seeklogo.com.png" alt="DANA" class="h-7 w-7">
-        <span class="text-base">Bayar dengan DANA</span>
-      </button>
+      <!-- Alamat Pengantaran -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-3">Alamat Pengantaran</h3>
 
-      <button onclick="pilihPembayaran('ShopeePay')" class="w-full flex items-center justify-start gap-3 bg-orange-500 px-4 py-3 rounded-lg font-semibold hover:bg-orange-600 transition">
-        <img src="https://seeklogo.com/images/S/shopee-logo-7F96D6D611-seeklogo.com.png" alt="ShopeePay" class="h-7 w-7 bg-white rounded p-1">
-        <span class="text-base">Bayar dengan ShopeePay</span>
-      </button>
+<div class="space-y-3">
+  <!-- Lokasi dipilih user -->
+  <div id="alamatUser" class="flex items-center gap-3 p-3 bg-gray-100 rounded-lg border cursor-pointer" onclick="openMap()">
+    <div class="w-6 h-6 flex items-center justify-center bg-yellow-400 text-black font-bold rounded-full text-sm">📍</div>
+    <span id="alamatText">Pilih lokasi di Maps</span>
+  </div>
+</div>
 
-      <button onclick="pilihPembayaran('Transfer Bank')" class="w-full flex items-center justify-start gap-3 bg-gray-600 px-4 py-3 rounded-lg font-semibold hover:bg-gray-700 transition">
-        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" alt="Bank" class="h-7 w-7">
-        <span class="text-base">Transfer Bank</span>
-      </button>
-    </div>
+<!-- Modal Maps -->
+<div id="mapsModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div class="bg-white w-11/12 md:w-2/3 lg:w-1/2 p-4 rounded-xl shadow-lg">
+    <h3 class="font-semibold text-lg mb-2 text-center">Pilih Lokasi</h3>
+    <iframe id="mapsFrame" class="w-full h-80 rounded-lg" src="https://www.google.com/maps/embed/v1/place?key=YOUR_API_KEY&q=Malang" allowfullscreen></iframe>
 
-    <!-- QR Section -->
-    <div id="sectionQR" class="hidden mt-8 text-center">
-      <h3 class="text-lg font-semibold">Scan untuk membayar dengan <span id="metodeDipilih"></span></h3>
-      <p class="text-sm text-gray-400 mb-3">Nomor tujuan: <span class="font-bold">082132087833</span></p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=082132087833" alt="QR Pembayaran" class="mx-auto rounded-lg shadow-md w-48 h-48">
-      <p class="mt-3 text-xs text-gray-400">Gunakan aplikasi e-wallet untuk scan QR ini.</p>
+    <div class="flex justify-end gap-3 mt-4">
+      <button onclick="closeMap()" class="px-4 py-2 bg-gray-300 rounded-lg">Batal</button>
+      <button onclick="ambilLokasi()" class="px-4 py-2 bg-orange-500 text-white rounded-lg">Pilih Lokasi</button>
     </div>
   </div>
+</div>
+           
+          </div>
+          <div class="flex items-center gap-3 p-3 bg-gray-100 rounded-lg border">
+            <div class="w-6 h-6 flex items-center justify-center bg-yellow-400 text-black font-bold rounded-full text-sm">2</div>
+            
+          </div>
+
+          <!-- Alamat Tujuan -->
+          <h3 class="font-semibold text-lg mt-4 mb-2">Alamat Tujuan</h3>
+          <div id="alamatTujuan" class="flex items-center gap-3 p-3 bg-gray-100 rounded-lg border cursor-pointer" onclick="openMapTujuan()">
+            <div class="w-6 h-6 flex items-center justify-center bg-blue-400 text-white font-bold rounded-full text-sm">📌</div>
+            <span id="alamatTujuanText">Pilih alamat tujuan di Maps</span>
+          </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Produk -->
+      <div class="bg-white p-4 rounded-xl shadow flex gap-4 items-start">
+        <img src="https://i.ibb.co/0G4TFbj/roti.jpg" class="w-28 h-24 rounded-lg object-cover" />
+        <div class="flex-1">
+          <p class="font-bold text-orange-600" id="namaProduk">Roti Coklat</p>
+          <p class="text-sm text-gray-500">Roti dengan isian coklat lumer</p>
+          <p class="font-bold mt-2" id="hargaProduk">Rp 10.000</p>
+
+          <div class="flex items-center gap-3 mt-3">
+            <button class="px-3 py-1 bg-gray-200 rounded-lg text-sm">Tambah Catatan</button>
+            <button class="px-3 py-1 bg-gray-200 rounded-lg text-sm">Edit Pesanan</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opsi Pengantaran -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-3">Opsi Pengantaran</h3>
+        <div class="space-y-2">
+          <label class="flex items-center justify-between p-3 border rounded-lg cursor-pointer">
+            <span>Express</span>
+            <input type="radio" name="opsi" />
+          </label>
+
+          <label class="flex items-center justify-between p-3 border rounded-lg cursor-pointer">
+            <span>Reguler</span>
+            <input type="radio" name="opsi" checked />
+          </label>
+        </div>
+      </div>
+
+      <!-- Ringkasan Pembayaran -->
+      <div class="bg-white p-4 rounded-xl shadow">
+        <h3 class="font-semibold text-lg mb-3">Ringkasan Pembayaran</h3>
+        <div class="text-sm space-y-1">
+          <div class="flex justify-between">
+            <span>Harga produk</span>
+            <span>10.000</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Biaya pengiriman reguler</span>
+            <span>5.000</span>
+          </div>
+          <div class="flex justify-between">
+            <span>Biaya lainnya</span>
+            <span>3.000</span>
+          </div>
+
+          <div class="ml-3 mt-3 text-gray-500 space-y-2">
+            <p><b>Biaya Jasa & Layanan</b><br>Agar Wastara bisa meningkatkan pelayanan</p>
+            <p><b>Biaya bungkus</b><br>Untuk kemasan makanan</p>
+          </div>
+        </div>
+
+        <div class="flex justify-between font-bold text-lg mt-4">
+          <span>Total Pembayaran</span>
+          <span>18.000</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Right Section (Metode Pembayaran) -->
+    <section class="space-y-4">
+      <div class="bg-white rounded-xl shadow p-4">
+        <h3 class="font-semibold text-lg mb-3">Metode Pembayaran</h3>
+
+        <div class="space-y-3">
+          <button onclick="pilihPembayaran('GoPay')" class="w-full flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-100">
+            <img src="images/gopay.jpeg" class="w-7 h-7 rounded-full bg-white p-1" /> GoPay
+          </button>
+
+          <button onclick="pilihPembayaran('OVO')" class="w-full flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-100">
+            <img src="images/OVO.png" class="w-7 h-7" /> OVO
+          </button>
+
+          <button onclick="pilihPembayaran('DANA')" class="w-full flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-100">
+            <img src="https://seeklogo.com/images/D/dana-indonesia-logo-77CCDC2240-seeklogo.com.png" class="w-7 h-7" /> DANA
+          </button>
+
+          <button onclick="pilihPembayaran('ShopeePay')" class="w-full flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-100">
+            <img src="https://seeklogo.com/images/S/shopee-logo-7F96D6D611-seeklogo.com.png" class="w-7 h-7 bg-white p-1 rounded" /> ShopeePay
+          </button>
+
+          <button onclick="pilihPembayaran('Transfer Bank')" class="w-full flex items-center gap-3 p-3 border rounded-lg hover:bg-gray-100">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135706.png" class="w-7 h-7" /> Transfer Bank
+          </button>
+        </div>
+      </div>
+
+      <!-- QR CODE -->
+      <div id="sectionQR" class="hidden bg-white rounded-xl shadow p-4 text-center">
+        <h3 class="font-semibold text-lg">Scan untuk membayar dengan <span id="metodeDipilih"></span></h3>
+        <p class="text-sm text-gray-500 mb-3">Nomor tujuan: <b>082132087833</b></p>
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=082132087833" class="w-40 h-40 mx-auto rounded-lg shadow" />
+        <p class="text-xs text-gray-400 mt-3">Gunakan aplikasi e-wallet untuk scan QR ini.</p>
+      </div>
+    </section>
+  </main>
+
+<script>
+function pilihPembayaran(metode) {
+  document.getElementById("metodeDipilih").innerText = metode;
+  document.getElementById("sectionQR").classList.remove("hidden");
+}
+</script>
+
+<script>
+function openMap() {
+  document.getElementById('mapsModal').classList.remove('hidden');
+}
+function closeMap() {
+  document.getElementById('mapsModal').classList.add('hidden');
+}
+function ambilLokasi() {
+  document.getElementById('alamatText').innerText = 'Lokasi berhasil dipilih (contoh)';
+  closeMap();
+}
+</script>
+
+<script>
+function openMapTujuan() {
+  document.getElementById('mapsModal').classList.remove('hidden');
+  window.isSelectingTujuan = true;
+}
+
+const oldAmbilLokasi = ambilLokasi;
+function ambilLokasi() {
+  if (window.isSelectingTujuan) {
+    document.getElementById('alamatTujuanText').innerText = 'Alamat tujuan dipilih (contoh)';
+    window.isSelectingTujuan = false;
+  } else {
+    oldAmbilLokasi();
+  }
+  closeMap();
+}
+</script>
+
 </body>
 </html>
-
-
