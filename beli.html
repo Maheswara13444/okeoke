@@ -12,9 +12,7 @@
 <!-- NAVBAR -->
 <header class="fixed top-0 left-0 right-0 bg-white shadow z-50">
   <div class="max-w-5xl mx-auto flex items-center justify-between px-4 py-3">
-    <div class="flex items-center gap-2">
-      <span class="font-bold text-xl text-slate-900">Wastara</span>
-    </div>
+    <span class="font-bold text-xl text-slate-900">Wastara</span>
     <nav class="space-x-6 hidden md:block text-sm">
       <a href="#" class="hover:text-amber-700">Produk</a>
       <a href="#" class="hover:text-amber-700">Tentang</a>
@@ -32,23 +30,17 @@
     <h3 class="font-semibold text-lg mb-3 text-slate-900">Alamat Pengantaran</h3>
 
     <!-- Alamat Pengantaran -->
-    <div id="alamatUser"
-         class="flex items-center gap-3 p-3 bg-slate-100 rounded-lg border cursor-pointer hover:bg-amber-50"
-         onclick="openMap(false)">
-      <div class="w-7 h-7 flex items-center justify-center bg-amber-700 text-white rounded-full">
-        📍
-      </div>
+    <div onclick="openMap(false)"
+         class="flex items-center gap-3 p-3 bg-slate-100 rounded-lg border cursor-pointer hover:bg-amber-50">
+      <div class="w-7 h-7 flex items-center justify-center bg-amber-700 text-white rounded-full">📍</div>
       <span id="alamatText">Pilih lokasi pengantaran</span>
     </div>
 
     <!-- Alamat Tujuan -->
     <h3 class="font-semibold text-lg mt-5 mb-2 text-slate-900">Alamat Tujuan</h3>
-    <div id="alamatTujuan"
-         class="flex items-center gap-3 p-3 bg-slate-100 rounded-lg border cursor-pointer hover:bg-amber-50"
-         onclick="openMap(true)">
-      <div class="w-7 h-7 flex items-center justify-center bg-amber-700 text-white rounded-full">
-        📌
-      </div>
+    <div onclick="openMap(true)"
+         class="flex items-center gap-3 p-3 bg-slate-100 rounded-lg border cursor-pointer hover:bg-amber-50">
+      <div class="w-7 h-7 flex items-center justify-center bg-amber-700 text-white rounded-full">📌</div>
       <span id="alamatTujuanText">Pilih alamat tujuan</span>
     </div>
   </div>
@@ -64,41 +56,37 @@
     </div>
   </div>
 
-  <!-- OPSI PENGANTARAN -->
+  <!-- OPSI -->
   <div class="bg-white p-4 rounded-xl shadow">
-    <h3 class="font-semibold text-lg mb-3 text-slate-900">Opsi Pengantaran</h3>
+    <h3 class="font-semibold text-lg mb-3">Opsi Pengantaran</h3>
     <label class="flex justify-between items-center p-3 border rounded-lg cursor-pointer">
       <span>Express</span>
-      <input type="radio" name="opsi" />
+      <input type="radio" name="opsi">
     </label>
     <label class="flex justify-between items-center p-3 border rounded-lg cursor-pointer mt-2">
       <span>Reguler</span>
-      <input type="radio" name="opsi" checked />
+      <input type="radio" name="opsi" checked>
     </label>
   </div>
 
   <!-- RINGKASAN -->
   <div class="bg-white p-4 rounded-xl shadow">
-    <h3 class="font-semibold text-lg mb-3 text-slate-900">Ringkasan Pembayaran</h3>
+    <h3 class="font-semibold text-lg mb-3">Ringkasan Pembayaran</h3>
 
     <div class="text-sm space-y-2">
       <div class="flex justify-between">
-        <span>Harga produk</span>
-        <span>10.000</span>
+        <span>Harga produk</span><span>10.000</span>
       </div>
       <div class="flex justify-between">
-        <span>Biaya pengiriman</span>
-        <span>5.000</span>
+        <span>Biaya pengiriman</span><span>5.000</span>
       </div>
       <div class="flex justify-between">
-        <span>Biaya lainnya</span>
-        <span>3.000</span>
+        <span>Biaya lainnya</span><span>3.000</span>
       </div>
     </div>
 
     <div class="flex justify-between font-bold text-lg mt-4 border-t pt-3">
-      <span>Total Pembayaran</span>
-      <span>18.000</span>
+      <span>Total</span><span>18.000</span>
     </div>
   </div>
 
@@ -109,33 +97,17 @@
 
   <!-- METODE -->
   <div class="bg-white p-4 rounded-xl shadow">
-    <h3 class="font-semibold text-lg mb-3 text-slate-900">Metode Pembayaran</h3>
+    <h3 class="font-semibold text-lg mb-3">Metode Pembayaran</h3>
 
-    <button onclick="pilihPembayaran('GoPay')"
-            class="w-full p-3 border rounded-lg hover:bg-slate-100 mb-2">
-      GoPay
-    </button>
-
-    <button onclick="pilihPembayaran('OVO')"
-            class="w-full p-3 border rounded-lg hover:bg-slate-100 mb-2">
-      OVO
-    </button>
-
-    <button onclick="pilihPembayaran('DANA')"
-            class="w-full p-3 border rounded-lg hover:bg-slate-100 mb-2">
-      DANA
-    </button>
-
-    <button onclick="pilihPembayaran('ShopeePay')"
-            class="w-full p-3 border rounded-lg hover:bg-slate-100">
-      ShopeePay
-    </button>
+    <button onclick="pilihPembayaran('GoPay')" class="w-full p-3 border rounded-lg mb-2 hover:bg-slate-100">GoPay</button>
+    <button onclick="pilihPembayaran('OVO')" class="w-full p-3 border rounded-lg mb-2 hover:bg-slate-100">OVO</button>
+    <button onclick="pilihPembayaran('DANA')" class="w-full p-3 border rounded-lg mb-2 hover:bg-slate-100">DANA</button>
+    <button onclick="pilihPembayaran('ShopeePay')" class="w-full p-3 border rounded-lg hover:bg-slate-100">ShopeePay</button>
   </div>
 
   <!-- QR -->
-  <div id="sectionQR"
-       class="hidden bg-white p-4 rounded-xl shadow text-center">
-    <h3 class="font-semibold text-lg text-slate-900">
+  <div id="sectionQR" class="hidden bg-white p-4 rounded-xl shadow text-center">
+    <h3 class="font-semibold text-lg">
       Scan untuk membayar dengan <span id="metodeDipilih"></span>
     </h3>
     <p class="text-sm text-slate-500 mb-3">
@@ -148,32 +120,30 @@
 </section>
 </main>
 
-<!-- ================= MODAL MAPS ================= -->
+<!-- ================= MODAL MAPS (IMAGE LINK) ================= -->
 <div id="mapsModal"
      class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
 
-  <div class="bg-white w-11/12 md:w-1/2 p-5 rounded-xl shadow-xl text-center">
-    <h3 class="font-semibold text-lg mb-3 text-slate-900">
-      Pilih Lokasi di Google Maps
-    </h3>
+  <div class="bg-white w-11/12 md:w-1/2 p-5 rounded-xl shadow-xl">
+    <h3 class="font-semibold text-lg mb-3 text-center">Pilih Lokasi</h3>
 
+    <!-- IMAGE MAPS -->
     <a href="https://share.google/DOvifLR5bWTNxVeTR"
-       target="_blank"
-       class="block bg-amber-700 text-white py-3 rounded-lg hover:bg-amber-800">
-      Buka Google Maps
+       target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Google_Maps_icon_%282020%29.svg/512px-Google_Maps_icon_%282020%29.svg.png"
+           class="w-full h-52 object-contain bg-slate-100 rounded-lg p-6 hover:bg-amber-50 transition"
+           alt="Google Maps">
     </a>
 
-    <p class="text-sm text-slate-500 mt-3">
-      Pilih lokasi lalu kembali ke halaman ini
+    <p class="text-sm text-slate-500 text-center mt-3">
+      Klik gambar untuk membuka Google Maps
     </p>
 
     <div class="flex justify-end gap-3 mt-5">
-      <button onclick="closeMap()"
-              class="px-4 py-2 bg-slate-200 rounded-lg">
+      <button onclick="closeMap()" class="px-4 py-2 bg-slate-200 rounded-lg">
         Batal
       </button>
-      <button onclick="ambilLokasi()"
-              class="px-4 py-2 bg-amber-700 text-white rounded-lg">
+      <button onclick="ambilLokasi()" class="px-4 py-2 bg-amber-700 text-white rounded-lg hover:bg-amber-800">
         Lokasi Dipilih
       </button>
     </div>
