@@ -8,16 +8,13 @@
   <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- SAME FONT STYLE AS INDEX -->
   <style>
     body {
       opacity: 0;
       transition: opacity 0.6s ease-in-out;
       background: white;
     }
-    body.fade-in {
-      opacity: 1;
-    }
+    body.fade-in { opacity: 1; }
   </style>
 </head>
 
@@ -34,8 +31,7 @@
     <span class="text-base sm:text-lg font-bold text-slate-900">Wastara</span>
   </div>
 
-  <button id="menuBtn"
-          class="md:hidden text-slate-700 focus:outline-none text-xl">☰</button>
+  <button id="menuBtn" class="md:hidden text-slate-700 text-xl">☰</button>
 
   <div id="menu"
        class="hidden md:flex space-x-4 flex-col md:flex-row absolute md:static
@@ -61,13 +57,13 @@
 
   <!-- PRODUK 1 -->
   <div class="border rounded-xl shadow-md p-4 bg-white">
-    <div class="w-full aspect-[4/3] overflow-hidden rounded-xl shadow mb-3">
-      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836"
-           alt="Roti Gandum"
+    <div class="aspect-[4/3] overflow-hidden rounded-xl mb-3">
+      <img src="images/roti-keju-tanpa-telur.jpg"
+           alt="Roti Keju Tanpa Telur"
            class="w-full h-full object-cover">
     </div>
 
-    <h3 class="text-lg font-semibold text-slate-900">Roti Gandum</h3>
+    <h3 class="text-lg font-semibold text-slate-900">Roti Keju</h3>
     <p class="text-slate-600 text-sm mt-1">Expired: 14 Desember 2025</p>
     <p class="font-bold text-amber-700 mt-2">Rp 8.000</p>
 
@@ -80,15 +76,15 @@
 
   <!-- PRODUK 2 -->
   <div class="border rounded-xl shadow-md p-4 bg-white">
-    <div class="w-full aspect-[4/3] overflow-hidden rounded-xl shadow mb-3">
-      <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800"
-           alt="Salad Fresh"
+    <div class="aspect-[4/3] overflow-hidden rounded-xl mb-3">
+      <img src="images/roti-keju-tanpa-telur.jpg"
+           alt="Roti Keju Tanpa Telur"
            class="w-full h-full object-cover">
     </div>
 
-    <h3 class="text-lg font-semibold text-slate-900">Salad Fresh</h3>
-    <p class="text-slate-600 text-sm mt-1">Expired: 11 Desember 2025</p>
-    <p class="font-bold text-amber-700 mt-2">Rp 12.000</p>
+    <h3 class="text-lg font-semibold text-slate-900">Roti Keju Premium</h3>
+    <p class="text-slate-600 text-sm mt-1">Expired: 13 Desember 2025</p>
+    <p class="font-bold text-amber-700 mt-2">Rp 9.000</p>
 
     <a href="beli.html">
       <button class="mt-4 w-full bg-amber-700 text-white py-2 rounded-lg hover:bg-amber-800 transition">
@@ -99,15 +95,15 @@
 
   <!-- PRODUK 3 -->
   <div class="border rounded-xl shadow-md p-4 bg-white">
-    <div class="w-full aspect-[4/3] overflow-hidden rounded-xl shadow mb-3">
-      <img src="images/wastara.png"
-           alt="Makanan Lokal"
+    <div class="aspect-[4/3] overflow-hidden rounded-xl mb-3">
+      <img src="images/roticokelat.jpg"
+           alt="Roti Keju Tanpa Telur"
            class="w-full h-full object-cover">
     </div>
 
-    <h3 class="text-lg font-semibold text-slate-900">Makanan Lokal</h3>
-    <p class="text-slate-600 text-sm mt-1">Expired: 10 Desember 2025</p>
-    <p class="font-bold text-amber-700 mt-2">Rp 9.500</p>
+    <h3 class="text-lg font-semibold text-slate-900">Roti Keju Hemat</h3>
+    <p class="text-slate-600 text-sm mt-1">Expired: 12 Desember 2025</p>
+    <p class="font-bold text-amber-700 mt-2">Rp 7.500</p>
 
     <a href="beli.html">
       <button class="mt-4 w-full bg-amber-700 text-white py-2 rounded-lg hover:bg-amber-800 transition">
@@ -126,10 +122,7 @@
 
   const menuBtn = document.getElementById("menuBtn");
   const menu = document.getElementById("menu");
-
-  menuBtn.addEventListener("click", () => {
-    menu.classList.toggle("hidden");
-  });
+  menuBtn.addEventListener("click", () => menu.classList.toggle("hidden"));
 </script>
 
 </body>
